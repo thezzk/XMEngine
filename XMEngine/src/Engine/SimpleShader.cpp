@@ -25,7 +25,7 @@ SimpleShader::SimpleShader(std::string vertexFilePath, std::string fragmentFileP
     //E: Activates the vertex buffer initialized in Core
     glBindBuffer(GL_ARRAY_BUFFER, (VertexBuffer::getInstance())->getGLVertexRef());
     
-    //F:Describe the characteristic of the vertex position attribute
+    //F: Describe the characteristic of the vertex position attribute
     glVertexAttribPointer(
                           this->mShaderVertexPositionAttribute,
                           3,        //each element is a 3-float (x,y,z)
@@ -34,11 +34,25 @@ SimpleShader::SimpleShader(std::string vertexFilePath, std::string fragmentFileP
                           0,        //number of bytes to skip in between elements
                           (void*)0  //offsets to the first element
     );
+    
+    //G: Gets a reference  to the uniform variable: uPixelColor, uModelTransform, uViewProjTransform
+    this->mPixelColor = glGetUniformLocation(this->mCompiledShader, "uPixelColor");
+    this->mModelTransform = glGetUniformLocation(this->mCompiledShader, "uModelTransform");
+    this->mViewProjTransform = glGetUniformLocation(this->mCompiledShader, "uViewProjTransform");
 }
-void SimpleShader::activateShader()
+    
+void SimpleShader::activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix)
 {
     glUseProgram(this->mCompiledShader);
+    glUniformMatrix4fv(mViewProjTransform, 1, GL_FALSE, &vpMatrix[0][0]);
     glEnableVertexAttribArray(this->mShaderVertexPositionAttribute);
+    assert(pixelColor.size() >= 4);
+    glUniform4fv(mPixelColor, 1, pixelColor.data());
+}
+
+void SimpleShader::loadObjectTransform(glm::mat4 modelTransform)
+{
+    glUniformMatrix4fv(mModelTransform, 1, GL_FALSE, &modelTransform[0][0]);
 }
 
 inline GLuint SimpleShader::getShader()

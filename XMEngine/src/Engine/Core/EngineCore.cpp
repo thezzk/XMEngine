@@ -40,7 +40,7 @@ int Core::initializeGL()
     
     
     // Open a window and create its OpenGL context
-    window = glfwCreateWindow( 1024, 768, "XMEngine", NULL, NULL);
+    window = glfwCreateWindow( 640, 480, "XMEngine", NULL, NULL);
     if( window == NULL ){
         fprintf( stderr, "Failed to open GLFW window.\n" );
         getchar();
