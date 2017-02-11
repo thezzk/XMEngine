@@ -11,73 +11,79 @@
 #include "Transform.h"
 #include "EngineCore.h"
 #include "EngineVertexBuffer.h"
+#include "EngineGameLoop.h"
+#include "EngineInput.h"
+#include "KeycodeDef.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 MyGame::MyGame()
 {
-    //A: Initialize the GL Context
-    (gEngine::Core::getInstance())->initializeGL();
-    
-    //B: Setup the camera
-    mCamera = gEngine::Camera(glm::vec2(20.0, 60.0),
-                              20.0,
-                              {20.0, 40.0, 600.0, 300.0}
-    );
-    
-    //C:Create the shader
-    mConstColorShader = new gEngine::SimpleShader("GLSLShaders/SimpleVS.glsl", "GLSLShaders/SimpleFS.glsl");
-    
-    //D:Create the Renderable objects
-    mBlueSq = new gEngine::Renderable(*mConstColorShader);
-    mBlueSq->setColor({0.25, 0.25, 0.95, 1});
-    mRedSq = new gEngine::Renderable(*mConstColorShader);
-    mRedSq->setColor({1, 0.25, 0.25, 1});
-    mTLSq = new gEngine::Renderable(*mConstColorShader);
-    mTLSq->setColor({0.9, 0.1, 0.1, 1});
-    mTRSq = new gEngine::Renderable(*mConstColorShader);
-    mTRSq->setColor({0.1, 0.9, 0.1, 1});
-    mBRSq = new gEngine::Renderable(*mConstColorShader);
-    mBRSq->setColor({0.1, 0.1, 0.9 ,1});
-    mBLSq = new gEngine::Renderable(*mConstColorShader);
-    mBLSq->setColor({0.1, 0.1, 0.1, 1});
-    
-    //E:Clear the entrie canvas to be drawn
-    (gEngine::Core::getInstance())->clearCanvas({0.9, 0.9, 0.9 ,1});
-    
-    //F:Starts the drawing by activating the camera
-    mCamera.setupViewProjection();
-    glm::mat4 vpMatrix = mCamera.getVPMatrix();
-    
-    //G: Draw the blue square
-    mBlueSq->getXform().setPosition(20, 60);
-    mBlueSq->getXform().setRotationInRad(0.2);
-    mBlueSq->getXform().setSize(5, 5);
-    mBlueSq->draw(vpMatrix);
-    
-    //H: Draw with the red shader
-    mRedSq->getXform().setPosition(20, 60);
-    mRedSq->getXform().setSize(2, 2);
-    mRedSq->draw(vpMatrix);
-    
-    //top left
-    mTLSq->getXform().setPosition(10, 65);
-    mTLSq->draw(vpMatrix);
-    
-    //top right
-    mTRSq->getXform().setPosition(30, 65);
-    mTRSq->draw(vpMatrix);
-    
-    //bottom right
-    mBRSq->getXform().setPosition(30, 55);
-    mBRSq->draw(vpMatrix);
-    
-    //bottom left
-    mBLSq->getXform().setPosition(10, 55);
-    mBLSq->draw(vpMatrix);
-    
-    
+    (gEngine::Core::getInstance())->initializeEngineCore();
+    initialize();
 }
 MyGame::~MyGame()
 {
- 
+    
 }
+void MyGame::initialize()
+{
+    //A: set up cameras
+    mCamera=gEngine::Camera(glm::vec2(20, 60), 20, {20, 40, 600, 300});
+    mCamera.setBackgroundColor({0.8, 0.8, 0.8, 1});
+    //B: create the shader
+    mConstColorShader = new gEngine::SimpleShader("GLSLShaders/SimpleVS.glsl", "GLSLShaders/SimpleFS.glsl");
+    //C: Create the renderable objects
+    mWhiteSq = new gEngine::Renderable(*mConstColorShader);
+    mWhiteSq->setColor({1, 1, 1, 1});
+    mRedSq = new gEngine::Renderable(*mConstColorShader);
+    mRedSq->setColor({1, 0, 0, 1});
+    //D: Initialize the white renderable object
+    (mWhiteSq->getXform()).setPosition(20.0, 60.0);
+    (mWhiteSq->getXform()).setRotationInDegree(90.0f);
+    (mWhiteSq->getXform()).setSize(5.0, 5.0);
+    //E: Initialize the red renderable object
+    (mRedSq->getXform()).setPosition(20.0, 60.0);
+    (mRedSq->getXform()).setSize(2.0, 2.0);
+    //F:start the loop
+    (gEngine::GameLoop::getInstance())->start(this);
+}
+void MyGame::update()
+{
+    //A: white square
+    gEngine::Transform& whiteXform = mWhiteSq->getXform();
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_D))
+    {
+        if(whiteXform.getXPos() > 30.0f)
+        {
+            whiteXform.setPosition(10.0f, 60.0f);
+        }
+        whiteXform.incXPosBy(0.05f);
+    }
+    
+    if((gEngine::Input::getInstance())->isKeyClicked(KEY_W))
+    {
+        whiteXform.incRotationByDegree(30.f);
+    }
+    
+    //B: red square
+    gEngine::Transform& redXform = mRedSq->getXform();
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_S))
+    {
+        if(redXform.getWidth() > 5)
+            redXform.setSize(2, 2);
+        redXform.incSizeBy(0.05);
+    }
+}
+void MyGame::draw()
+{
+    //A: clear the canvas
+    (gEngine::Core::getInstance())->clearCanvas({0.9, 0.9, 0.9, 1.0});
+    //B: Activate the drawing Camera
+    mCamera.setupViewProjection();
+    //C: Activate the white shader to draw
+    mWhiteSq->draw(mCamera.getVPMatrix());
+    //D: Activate the red shader to draw
+    mRedSq->draw(mCamera.getVPMatrix());
+    
+}
+

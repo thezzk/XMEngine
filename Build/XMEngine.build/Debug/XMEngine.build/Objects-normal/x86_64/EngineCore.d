@@ -78,4 +78,6 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/SingletonBase.h \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineVertexBuffer.h
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineVertexBuffer.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineInput.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/KeycodeDef.h

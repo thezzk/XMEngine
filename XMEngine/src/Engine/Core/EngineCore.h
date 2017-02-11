@@ -23,7 +23,8 @@ class Core: public SingletonBase<Core>
     
 public:
     friend SingletonBase<Core>;
-    int initializeGL();
+    
+    int initializeEngineCore();
     void clearCanvas(std::vector<GLclampf> color);
     GLFWwindow* getGLWindow();
 private:
@@ -31,6 +32,8 @@ private:
     Core(const Core&){}
     Core &operator=(const Core&);
     GLFWwindow* window;
+    
+    int initializeGL();
 };
 
 } //namespace gEngine

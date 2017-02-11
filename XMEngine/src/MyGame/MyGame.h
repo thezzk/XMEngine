@@ -24,15 +24,14 @@ class MyGame
 {
 private:
     gEngine::SimpleShader *mConstColorShader;
-    gEngine::Renderable *mBlueSq;
+    gEngine::Renderable *mWhiteSq;
     gEngine::Renderable *mRedSq;
-    gEngine::Renderable *mTLSq;
-    gEngine::Renderable *mTRSq;
-    gEngine::Renderable *mBRSq;
-    gEngine::Renderable *mBLSq;
     gEngine::Camera mCamera;
     
 public:
+    void initialize();
+    void update();
+    void draw();
     MyGame();
     ~MyGame();
     

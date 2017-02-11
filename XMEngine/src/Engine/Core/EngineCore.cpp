@@ -9,6 +9,7 @@
 
 #include "EngineCore.h"
 #include "EngineVertexBuffer.h"
+#include "EngineInput.h"
 
 namespace gEngine {
 
@@ -60,9 +61,16 @@ int Core::initializeGL()
     // Ensure we can capture the escape key being pressed below
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
-    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-    (VertexBuffer::getInstance())->initialize();
+    
     return 0;
+}
+
+int Core::initializeEngineCore()
+{
+    int retval = initializeGL();
+    (VertexBuffer::getInstance())->initialize();
+    (Input::getInstance())->initialize();
+    return retval;
 }
 
 } // namespace gEngine

@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/main.cpp \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/MyGame/MyGame.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineGameLoop.cpp \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineGameLoop.h \
   /usr/local/Cellar/glew/1.13.0/include/GL/glew.h \
   /usr/local/Cellar/glfw/3.2.1/include/GLFW/glfw3.h \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/glm.hpp \
@@ -77,6 +77,8 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.inl \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/SingletonBase.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/MyGame/MyGame.h \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/../gtc/constants.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
@@ -86,5 +88,6 @@ dependencies: \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Transform.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineCore.h \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/SingletonBase.h \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/TimeUtil.h
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/TimeUtil.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineInput.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/KeycodeDef.h

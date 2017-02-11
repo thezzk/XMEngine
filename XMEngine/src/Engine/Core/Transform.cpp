@@ -42,7 +42,23 @@ GLfloat Transform::getYPos()
 {
     return mPosition.y;
 }
-
+void Transform::incXPosBy(GLfloat delta)
+{
+    mPosition.x += delta;
+    mPosition.x = mPosition.x;
+}
+void Transform::incYPosBy(GLfloat delta)
+{
+    mPosition.y += delta;
+}
+void Transform::decXPosBy(GLfloat delta)
+{
+    mPosition.x -= delta;
+}
+void Transform::decYPosBy(GLfloat delta)
+{
+    mPosition.y -= delta;
+}
 /* Scale */
 void Transform::setSize(GLfloat width, GLfloat height)
 {
@@ -69,7 +85,16 @@ GLfloat Transform::getHeight()
 {
     return mScale.y;
 }
-
+void Transform::incSizeBy(GLfloat delta)
+{
+    mScale.x += delta;
+    mScale.y += delta;
+}
+void Transform::decSizeBy(GLfloat delta)
+{
+    mScale.x -= delta;
+    mScale.y -= delta;
+}
 /* Rotation */
 void Transform::setRotationInRad(GLfloat rotationInRadians)
 {
@@ -87,8 +112,23 @@ GLfloat Transform::getRotationInDegree()
 {
     return mRotationInRad * 180.0 / M_PI;
 }
+void Transform::incRotationByRad(GLfloat delta)
+{
+    mRotationInRad += delta;
+}
+void Transform::decRotationByRad(GLfloat delta)
+{
+    mRotationInRad -= delta;
+}
+void Transform::incRotationByDegree(GLfloat delta)
+{
+    mRotationInRad += (delta / 180.0) * M_PI;
+}
+void Transform::decRotationByDegree(GLfloat delta)
+{
+    mRotationInRad -= (delta / 180.0) * M_PI;
+}
 
-// namespace gEngine
 glm::mat4 Transform::getModelMatrix()
 {
     glm::mat4 matrix = glm::mat4(1.0f);

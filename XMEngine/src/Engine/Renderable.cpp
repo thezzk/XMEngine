@@ -17,12 +17,9 @@ Renderable::Renderable(SimpleShader shader):mShader(shader),mColor({1, 1, 1, 1})
 
 void Renderable::draw(glm::mat4 vpMatrix)
 {
-    GLFWwindow* window = (Core::getInstance())->getGLWindow();
     mShader.activateShader(mColor, vpMatrix);
     mShader.loadObjectTransform(mXform.getModelMatrix());
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    glfwSwapBuffers(window);
-    glfwPollEvents();
 }
 
 void Renderable::setColor(std::vector<GLfloat> color)

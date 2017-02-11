@@ -14,10 +14,13 @@
 		EA281C311E33AFB900AFE86B /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA281C2B1E33AFB900AFE86B /* shader.cpp */; };
 		EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA281C2D1E33AFB900AFE86B /* SimpleShader.cpp */; };
 		EA4593581E374DED00C2E885 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA4593561E374DED00C2E885 /* Transform.cpp */; };
+		EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA65086B1E4CCC87006B925A /* EngineInput.cpp */; };
 		EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABA32DC1E3C82BE007EA312 /* Camera.cpp */; };
+		EABA32E11E3DA2C1007EA312 /* EngineGameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */; };
 		EABCB3201E34A688009C0502 /* Renderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB31E1E34A688009C0502 /* Renderable.cpp */; };
 		EABCB3261E34AB2C009C0502 /* EngineCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB3221E34AB2C009C0502 /* EngineCore.cpp */; };
 		EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */; };
+		EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC95A311E49B47500819529 /* TimeUtil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,8 +49,13 @@
 		EA281C331E33AFC200AFE86B /* SingletonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingletonBase.h; path = src/Engine/Util/SingletonBase.h; sourceTree = "<group>"; };
 		EA4593561E374DED00C2E885 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Transform.cpp; path = src/Engine/Core/Transform.cpp; sourceTree = "<group>"; };
 		EA4593571E374DED00C2E885 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transform.h; path = src/Engine/Core/Transform.h; sourceTree = "<group>"; };
+		EA65086B1E4CCC87006B925A /* EngineInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineInput.cpp; path = src/Engine/Core/EngineInput.cpp; sourceTree = "<group>"; };
+		EA65086C1E4CCC87006B925A /* EngineInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineInput.h; path = src/Engine/Core/EngineInput.h; sourceTree = "<group>"; };
+		EA6508711E4E0374006B925A /* KeycodeDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeycodeDef.h; path = src/Engine/Core/KeycodeDef.h; sourceTree = "<group>"; };
 		EABA32DC1E3C82BE007EA312 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = src/Engine/Camera.cpp; sourceTree = "<group>"; };
 		EABA32DD1E3C82BE007EA312 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = src/Engine/Camera.h; sourceTree = "<group>"; };
+		EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineGameLoop.cpp; path = src/Engine/Core/EngineGameLoop.cpp; sourceTree = "<group>"; };
+		EABA32E01E3DA2C1007EA312 /* EngineGameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineGameLoop.h; path = src/Engine/Core/EngineGameLoop.h; sourceTree = "<group>"; };
 		EABCB31B1E34899C009C0502 /* SimpleFS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFS.glsl; path = src/GLSLShaders/SimpleFS.glsl; sourceTree = "<group>"; };
 		EABCB31C1E34899C009C0502 /* SimpleVS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVS.glsl; path = src/GLSLShaders/SimpleVS.glsl; sourceTree = "<group>"; };
 		EABCB31D1E34899C009C0502 /* WhiteFS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WhiteFS.glsl; path = src/GLSLShaders/WhiteFS.glsl; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 		EABCB3231E34AB2C009C0502 /* EngineCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineCore.h; path = src/Engine/Core/EngineCore.h; sourceTree = "<group>"; };
 		EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineVertexBuffer.cpp; path = src/Engine/Core/EngineVertexBuffer.cpp; sourceTree = "<group>"; };
 		EABCB3251E34AB2C009C0502 /* EngineVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineVertexBuffer.h; path = src/Engine/Core/EngineVertexBuffer.h; sourceTree = "<group>"; };
+		EAC95A311E49B47500819529 /* TimeUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeUtil.cpp; path = src/Engine/Util/TimeUtil.cpp; sourceTree = "<group>"; };
+		EAC95A321E49B47500819529 /* TimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeUtil.h; path = src/Engine/Util/TimeUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				EA281C331E33AFC200AFE86B /* SingletonBase.h */,
+				EAC95A311E49B47500819529 /* TimeUtil.cpp */,
+				EAC95A321E49B47500819529 /* TimeUtil.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -162,6 +174,11 @@
 				EABCB3231E34AB2C009C0502 /* EngineCore.h */,
 				EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */,
 				EABCB3251E34AB2C009C0502 /* EngineVertexBuffer.h */,
+				EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */,
+				EABA32E01E3DA2C1007EA312 /* EngineGameLoop.h */,
+				EA65086B1E4CCC87006B925A /* EngineInput.cpp */,
+				EA65086C1E4CCC87006B925A /* EngineInput.h */,
+				EA6508711E4E0374006B925A /* KeycodeDef.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -224,9 +241,12 @@
 			files = (
 				EABCB3261E34AB2C009C0502 /* EngineCore.cpp in Sources */,
 				EA281C311E33AFB900AFE86B /* shader.cpp in Sources */,
+				EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */,
 				EA4593581E374DED00C2E885 /* Transform.cpp in Sources */,
 				EA281C231E33AF9D00AFE86B /* main.cpp in Sources */,
 				EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */,
+				EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */,
+				EABA32E11E3DA2C1007EA312 /* EngineGameLoop.cpp in Sources */,
 				EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */,
 				EA281C261E33AFA700AFE86B /* MyGame.cpp in Sources */,
 				EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */,
@@ -321,6 +341,10 @@
 		EA17DBC91E2A313D004CFA19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(glfw_header)",
 					"$(glew_header)",
@@ -343,6 +367,10 @@
 		EA17DBCA1E2A313D004CFA19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(glfw_header)",
 					"$(glew_header)",
