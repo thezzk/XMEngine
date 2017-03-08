@@ -23,6 +23,7 @@ public:
     SimpleShader(std::string vertexFilePath, std::string fragmentFilePath);
     void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
     void loadObjectTransform(glm::mat4 modelTransform);
+    GLuint compileShader(std::string path, GLuint shaderType);
     GLuint getShader();
 private:
     GLuint mPixelColor; // the uniform loaction of shader's pixel color

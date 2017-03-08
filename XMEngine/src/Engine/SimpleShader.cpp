@@ -5,19 +5,66 @@
 //  Created by thezzk on 17/1/20.
 //  Copyright © 2017年 thezzk. All rights reserved.
 //
+#include "fstream"
 
 #include "SimpleShader.h"
-#include "shader.h"
 #include "EngineVertexBuffer.h"
+#include "ResourceMap.h"
 
 namespace gEngine {
+
+GLuint SimpleShader::compileShader(const std::string path, GLuint shaderType)
+{
+    //Step A: Get the shader source
+    std::string shaderSource = ((ResourceMap::getInstance())->retrieveAsset<TextAsset>(path))->getTextContent();
+    //Step B: Create the shader based on the source type: vertex or fragement
+    GLuint shaderID = glCreateShader(shaderType);
+    //Step C: Compile and created shader
+    char const* shaderSourcePointer = shaderSource.c_str();
+    glShaderSource(shaderID, 1, &shaderSourcePointer, NULL);
+    glCompileShader(shaderID);
+    //Step D: check for error and return result
+    GLint result = GL_FALSE;
+    int infoLogLength;
+    glGetShaderiv(shaderID, GL_COMPILE_STATUS, &result);
+    glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if(infoLogLength > 0)
+    {
+        std::vector<char> shaderErrorMessage(infoLogLength + 1);
+        glGetShaderInfoLog(shaderID, infoLogLength, NULL, &shaderErrorMessage[0]);
+        printf("%s\n", &shaderErrorMessage[0]);
+    }
+    assert(result == GL_TRUE);
+    return shaderID;
+}
+    
 SimpleShader::SimpleShader(std::string vertexFilePath, std::string fragmentFilePath)
 {
     //A: load and compile vertex and fragment shaders
+    GLuint vertexShaderID = compileShader(vertexFilePath, GL_VERTEX_SHADER);
+    GLuint fragmentShaderID  = compileShader(fragmentFilePath, GL_FRAGMENT_SHADER);
     //B: Create and link the shaders into a program and hold the PROGRAM ID
-    //C: "LoadShaders" gets responsible for checking errorsa
-    mCompiledShader = LoadShaders(vertexFilePath.c_str(), fragmentFilePath.c_str());
+    mCompiledShader = glCreateProgram();
+    glAttachShader(mCompiledShader, vertexShaderID);
+    glAttachShader(mCompiledShader, fragmentShaderID);
+    glLinkProgram(mCompiledShader);
+    //C: check for error and detach/delete shader
+    GLint result = GL_FALSE;
+    int infoLogLength;
+    glGetProgramiv(mCompiledShader, GL_LINK_STATUS, &result);
+    glGetProgramiv(mCompiledShader, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if( infoLogLength > 0)
+    {
+        std::vector<char> programErrorMessage(infoLogLength + 1);
+        glGetProgramInfoLog(mCompiledShader, infoLogLength, NULL, &programErrorMessage[0]);
+        printf("%s\n", &programErrorMessage[0]);
+    }
+    assert(result == GL_TRUE);
     
+    glDetachShader(mCompiledShader, vertexShaderID);
+    glDetachShader(mCompiledShader, fragmentShaderID);
+    glDeleteShader(vertexShaderID);
+    glDeleteShader(fragmentShaderID);
     //D: Gets a reference to the aSquareVertexPosition attribute
     this->mShaderVertexPositionAttribute = glGetAttribLocation(this->mCompiledShader,
                                                                "aSquareVertexPosition");

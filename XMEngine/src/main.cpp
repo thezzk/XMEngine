@@ -7,14 +7,15 @@
 #include "TimeUtil.h"
 #include "iostream"
 
+//test use
+#include "ResourceMap.h"
+#include "TextFileLoader.h"
+#include "TextAsset.h"
 using namespace std;
+
+
 int main( void )
 {
-    MyGame game;
-    /*while(1)
-    {
-        
-        unsigned long x = (TimeUtil::getInstance())->getMillisecond();
-        x = x;
-    }*/
+    MyGame newGame;
+    (gEngine::Core::getInstance())->initializeEngineCore(newGame);
 }

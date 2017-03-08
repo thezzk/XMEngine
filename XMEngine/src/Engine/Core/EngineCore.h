@@ -17,6 +17,8 @@
 #include <glm/glm.hpp>
 
 #include "SingletonBase.h"
+#include "MyGame.h"
+#include "EngineGameLoop.h"
 namespace gEngine {
 class Core: public SingletonBase<Core>
 {
@@ -24,14 +26,18 @@ class Core: public SingletonBase<Core>
 public:
     friend SingletonBase<Core>;
     
-    int initializeEngineCore();
+    int initializeEngineCore(MyGame& myGame);
     void clearCanvas(std::vector<GLclampf> color);
     GLFWwindow* getGLWindow();
+    std::shared_ptr<MyGame> getCurrentScene();
+    void setCurrentScene(std::shared_ptr<MyGame> scene);
+    void startScene(MyGame& myGame);
 private:
     Core(){}
     Core(const Core&){}
     Core &operator=(const Core&);
     GLFWwindow* window;
+    std::shared_ptr<MyGame> currentScene;
     
     int initializeGL();
 };

@@ -18,8 +18,8 @@
 
 MyGame::MyGame()
 {
-    (gEngine::Core::getInstance())->initializeEngineCore();
-    initialize();
+    //(gEngine::Core::getInstance())->initializeEngineCore();
+    //initialize();
 }
 MyGame::~MyGame()
 {
@@ -44,8 +44,6 @@ void MyGame::initialize()
     //E: Initialize the red renderable object
     (mRedSq->getXform()).setPosition(20.0, 60.0);
     (mRedSq->getXform()).setSize(2.0, 2.0);
-    //F:start the loop
-    (gEngine::GameLoop::getInstance())->start(this);
 }
 void MyGame::update()
 {

@@ -15,6 +15,11 @@
 		EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA281C2D1E33AFB900AFE86B /* SimpleShader.cpp */; };
 		EA4593581E374DED00C2E885 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA4593561E374DED00C2E885 /* Transform.cpp */; };
 		EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA65086B1E4CCC87006B925A /* EngineInput.cpp */; };
+		EA8C92291E5BF4E900A04145 /* ResourceMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */; };
+		EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C922A1E5C0B4600A04145 /* Asset.cpp */; };
+		EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C922D1E602B3C00A04145 /* TextFileLoader.cpp */; };
+		EA8C92321E6195C600A04145 /* TextAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C92301E6195C600A04145 /* TextAsset.cpp */; };
+		EA8C92351E686F0A00A04145 /* DefaultResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C92331E686F0A00A04145 /* DefaultResources.cpp */; };
 		EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABA32DC1E3C82BE007EA312 /* Camera.cpp */; };
 		EABA32E11E3DA2C1007EA312 /* EngineGameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */; };
 		EABCB3201E34A688009C0502 /* Renderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB31E1E34A688009C0502 /* Renderable.cpp */; };
@@ -52,6 +57,16 @@
 		EA65086B1E4CCC87006B925A /* EngineInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineInput.cpp; path = src/Engine/Core/EngineInput.cpp; sourceTree = "<group>"; };
 		EA65086C1E4CCC87006B925A /* EngineInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineInput.h; path = src/Engine/Core/EngineInput.h; sourceTree = "<group>"; };
 		EA6508711E4E0374006B925A /* KeycodeDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeycodeDef.h; path = src/Engine/Core/KeycodeDef.h; sourceTree = "<group>"; };
+		EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceMap.cpp; path = src/Engine/Core/Resources/ResourceMap.cpp; sourceTree = "<group>"; };
+		EA8C92281E5BF4E900A04145 /* ResourceMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceMap.h; path = src/Engine/Core/Resources/ResourceMap.h; sourceTree = "<group>"; };
+		EA8C922A1E5C0B4600A04145 /* Asset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Asset.cpp; path = src/Engine/Core/Resources/Asset.cpp; sourceTree = "<group>"; };
+		EA8C922B1E5C0B4600A04145 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Asset.h; path = src/Engine/Core/Resources/Asset.h; sourceTree = "<group>"; };
+		EA8C922D1E602B3C00A04145 /* TextFileLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextFileLoader.cpp; path = src/Engine/Core/Resources/TextFileLoader.cpp; sourceTree = "<group>"; };
+		EA8C922E1E602B3C00A04145 /* TextFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFileLoader.h; path = src/Engine/Core/Resources/TextFileLoader.h; sourceTree = "<group>"; };
+		EA8C92301E6195C600A04145 /* TextAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextAsset.cpp; path = src/Engine/Core/Resources/TextAsset.cpp; sourceTree = "<group>"; };
+		EA8C92311E6195C600A04145 /* TextAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextAsset.h; path = src/Engine/Core/Resources/TextAsset.h; sourceTree = "<group>"; };
+		EA8C92331E686F0A00A04145 /* DefaultResources.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultResources.cpp; path = src/Engine/Core/Resources/DefaultResources.cpp; sourceTree = "<group>"; };
+		EA8C92341E686F0A00A04145 /* DefaultResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultResources.h; path = src/Engine/Core/Resources/DefaultResources.h; sourceTree = "<group>"; };
 		EABA32DC1E3C82BE007EA312 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = src/Engine/Camera.cpp; sourceTree = "<group>"; };
 		EABA32DD1E3C82BE007EA312 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = src/Engine/Camera.h; sourceTree = "<group>"; };
 		EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineGameLoop.cpp; path = src/Engine/Core/EngineGameLoop.cpp; sourceTree = "<group>"; };
@@ -157,6 +172,23 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		EA8C92261E5BEB9200A04145 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */,
+				EA8C92281E5BF4E900A04145 /* ResourceMap.h */,
+				EA8C922A1E5C0B4600A04145 /* Asset.cpp */,
+				EA8C922B1E5C0B4600A04145 /* Asset.h */,
+				EA8C922D1E602B3C00A04145 /* TextFileLoader.cpp */,
+				EA8C922E1E602B3C00A04145 /* TextFileLoader.h */,
+				EA8C92301E6195C600A04145 /* TextAsset.cpp */,
+				EA8C92311E6195C600A04145 /* TextAsset.h */,
+				EA8C92331E686F0A00A04145 /* DefaultResources.cpp */,
+				EA8C92341E686F0A00A04145 /* DefaultResources.h */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		EABCB31A1E348968009C0502 /* GLSLShaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +202,7 @@
 		EABCB3211E34AAB2009C0502 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EA8C92261E5BEB9200A04145 /* Resources */,
 				EABCB3221E34AB2C009C0502 /* EngineCore.cpp */,
 				EABCB3231E34AB2C009C0502 /* EngineCore.h */,
 				EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */,
@@ -242,14 +275,19 @@
 				EABCB3261E34AB2C009C0502 /* EngineCore.cpp in Sources */,
 				EA281C311E33AFB900AFE86B /* shader.cpp in Sources */,
 				EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */,
+				EA8C92321E6195C600A04145 /* TextAsset.cpp in Sources */,
 				EA4593581E374DED00C2E885 /* Transform.cpp in Sources */,
+				EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */,
 				EA281C231E33AF9D00AFE86B /* main.cpp in Sources */,
 				EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */,
+				EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */,
 				EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */,
 				EABA32E11E3DA2C1007EA312 /* EngineGameLoop.cpp in Sources */,
 				EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */,
 				EA281C261E33AFA700AFE86B /* MyGame.cpp in Sources */,
 				EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */,
+				EA8C92351E686F0A00A04145 /* DefaultResources.cpp in Sources */,
+				EA8C92291E5BF4E900A04145 /* ResourceMap.cpp in Sources */,
 				EABCB3201E34A688009C0502 /* Renderable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

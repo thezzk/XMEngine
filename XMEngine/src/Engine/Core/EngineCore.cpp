@@ -10,6 +10,7 @@
 #include "EngineCore.h"
 #include "EngineVertexBuffer.h"
 #include "EngineInput.h"
+#include "DefaultResources.h"
 
 namespace gEngine {
 
@@ -65,11 +66,31 @@ int Core::initializeGL()
     return 0;
 }
 
-int Core::initializeEngineCore()
+void Core::setCurrentScene(std::shared_ptr<MyGame> scene)
+{
+    currentScene = scene;
+}
+    
+std::shared_ptr<MyGame> Core::getCurrentScene()
+{
+    return currentScene;
+}
+   
+    
+void Core::startScene(MyGame& myGame)
+{
+    myGame.initialize();
+    currentScene = std::shared_ptr<MyGame>(&myGame);
+    (GameLoop::getInstance())->start(&myGame);
+}
+
+int Core::initializeEngineCore(MyGame& myGame)
 {
     int retval = initializeGL();
+    currentScene = std::shared_ptr<MyGame>(&myGame);
     (VertexBuffer::getInstance())->initialize();
     (Input::getInstance())->initialize();
+    (DefaultResources::getInstance())->initialize();
     return retval;
 }
 
