@@ -10,6 +10,7 @@
 #include "EngineCore.h"
 #include "TimeUtil.h"
 #include "EngineInput.h"
+#include "EngineCore.h"
 
 
 namespace gEngine {
@@ -44,7 +45,18 @@ void GameLoop::runLoop()
 void GameLoop::start(MyGame *myGame)
 {
     this->myGame = myGame;
+    (ResourceMap::getInstance())->setLoadCompleteCallback(loadSceneCompleteCallback);
+}
+
+void GameLoop::loadSceneCompleteCallback()
+{
     
+    (GameLoop::getInstance())->myGame->initialize();
+    (GameLoop::getInstance())->startLoop();
+}
+    
+void GameLoop::startLoop()
+{
     //A: reset time
     mPreviousTime = (TimeUtil::getInstance())->getMillisecond();
     mLagTime = 0;
@@ -53,6 +65,7 @@ void GameLoop::start(MyGame *myGame)
     
     //C: start the loop
     runLoop();
+ 
 }
     
 }// namespace gEngine

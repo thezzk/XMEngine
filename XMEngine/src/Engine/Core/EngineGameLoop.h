@@ -18,6 +18,7 @@
 
 #include "SingletonBase.h"
 #include "MyGame.h"
+#include "ResourceMap.h"
 
 namespace gEngine
 {
@@ -51,6 +52,9 @@ private:
     MyGame* myGame;
     
     void runLoop();
+    void startLoop();
+    static void loadSceneCompleteCallback();
+    
 };
     
 }// namespace gEngine

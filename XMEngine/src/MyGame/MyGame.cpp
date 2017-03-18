@@ -14,41 +14,38 @@
 #include "EngineGameLoop.h"
 #include "EngineInput.h"
 #include "KeycodeDef.h"
+#include "SceneFileParser.h"
+#include "TextFileLoader.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 MyGame::MyGame()
 {
-    //(gEngine::Core::getInstance())->initializeEngineCore();
-    //initialize();
+    
 }
 MyGame::~MyGame()
 {
     
 }
+void MyGame::loadScene()
+{
+    (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
+}
+void MyGame::unloadScene()
+{
+    (gEngine::TextFileLoader::getInstance())->unloadTextFile(kSceneFile);
+}
 void MyGame::initialize()
 {
-    //A: set up cameras
-    mCamera=gEngine::Camera(glm::vec2(20, 60), 20, {20, 40, 600, 300});
-    mCamera.setBackgroundColor({0.8, 0.8, 0.8, 1});
-    //B: create the shader
-    mConstColorShader = new gEngine::SimpleShader("GLSLShaders/SimpleVS.glsl", "GLSLShaders/SimpleFS.glsl");
-    //C: Create the renderable objects
-    mWhiteSq = new gEngine::Renderable(*mConstColorShader);
-    mWhiteSq->setColor({1, 1, 1, 1});
-    mRedSq = new gEngine::Renderable(*mConstColorShader);
-    mRedSq->setColor({1, 0, 0, 1});
-    //D: Initialize the white renderable object
-    (mWhiteSq->getXform()).setPosition(20.0, 60.0);
-    (mWhiteSq->getXform()).setRotationInDegree(90.0f);
-    (mWhiteSq->getXform()).setSize(5.0, 5.0);
-    //E: Initialize the red renderable object
-    (mRedSq->getXform()).setPosition(20.0, 60.0);
-    (mRedSq->getXform()).setSize(2.0, 2.0);
+    gEngine::SceneFileParser sceneFileParser(kSceneFile);
+    //A: Camera
+    mCamera = sceneFileParser.parseCamera();
+    //B: Squares
+    mSqSet = sceneFileParser.parseSquares();
 }
 void MyGame::update()
 {
     //A: white square
-    gEngine::Transform& whiteXform = mWhiteSq->getXform();
+    gEngine::Transform& whiteXform = mSqSet[0]->getXform();
     if((gEngine::Input::getInstance())->isKeyPressed(KEY_D))
     {
         if(whiteXform.getXPos() > 30.0f)
@@ -64,7 +61,7 @@ void MyGame::update()
     }
     
     //B: red square
-    gEngine::Transform& redXform = mRedSq->getXform();
+    gEngine::Transform& redXform = mSqSet[1]->getXform();
     if((gEngine::Input::getInstance())->isKeyPressed(KEY_S))
     {
         if(redXform.getWidth() > 5)
@@ -77,11 +74,12 @@ void MyGame::draw()
     //A: clear the canvas
     (gEngine::Core::getInstance())->clearCanvas({0.9, 0.9, 0.9, 1.0});
     //B: Activate the drawing Camera
-    mCamera.setupViewProjection();
-    //C: Activate the white shader to draw
-    mWhiteSq->draw(mCamera.getVPMatrix());
-    //D: Activate the red shader to draw
-    mRedSq->draw(mCamera.getVPMatrix());
+    mCamera->setupViewProjection();
+    //C: Draw all squares
+    for(int i = 0; i < mSqSet.size(); i++)
+    {
+        mSqSet[i]->draw(mCamera->getVPMatrix());
+    }
     
 }
 

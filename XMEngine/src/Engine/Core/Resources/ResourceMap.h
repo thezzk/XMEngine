@@ -21,8 +21,9 @@ namespace gEngine {
     
 class ResourceMap: public SingletonBase<ResourceMap>
 {
-    typedef void (*CallbackFuncType)();
+    
 public:
+    typedef void (*CallbackFuncType)();
     friend SingletonBase<ResourceMap>;
     
     void setLoadCompleteCallback(CallbackFuncType funct);

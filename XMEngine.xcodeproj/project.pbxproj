@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0493D71E705D3100E019B4 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA0493D51E705D3100E019B4 /* tinyxml2.cpp */; };
+		EA0493DA1E7264D500E019B4 /* XMLAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA0493D81E7264D400E019B4 /* XMLAsset.cpp */; };
 		EA17DBD41E2BE2CC004CFA19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA17DBD31E2BE2CC004CFA19 /* OpenGL.framework */; };
 		EA17DBD61E2BE2D3004CFA19 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA17DBD51E2BE2D3004CFA19 /* GLUT.framework */; };
 		EA281C231E33AF9D00AFE86B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA281C1F1E33AF9D00AFE86B /* main.cpp */; };
@@ -26,6 +28,7 @@
 		EABCB3261E34AB2C009C0502 /* EngineCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB3221E34AB2C009C0502 /* EngineCore.cpp */; };
 		EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */; };
 		EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC95A311E49B47500819529 /* TimeUtil.cpp */; };
+		EAD717921E7A91CF00337DF2 /* SceneFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAD717901E7A91CF00337DF2 /* SceneFileParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +44,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EA0493CE1E70501700E019B4 /* scene.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = scene.xml; path = assets/scene.xml; sourceTree = "<group>"; };
+		EA0493D51E705D3100E019B4 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml2.cpp; path = src/Engine/Util/tinyxml2.cpp; sourceTree = "<group>"; };
+		EA0493D61E705D3100E019B4 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml2.h; path = src/Engine/Util/tinyxml2.h; sourceTree = "<group>"; };
+		EA0493D81E7264D400E019B4 /* XMLAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLAsset.cpp; path = src/Engine/Core/Resources/XMLAsset.cpp; sourceTree = "<group>"; };
+		EA0493D91E7264D400E019B4 /* XMLAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLAsset.h; path = src/Engine/Core/Resources/XMLAsset.h; sourceTree = "<group>"; };
 		EA17DBC11E2A313D004CFA19 /* XMEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XMEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA17DBD31E2BE2CC004CFA19 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		EA17DBD51E2BE2D3004CFA19 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -82,6 +90,8 @@
 		EABCB3251E34AB2C009C0502 /* EngineVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineVertexBuffer.h; path = src/Engine/Core/EngineVertexBuffer.h; sourceTree = "<group>"; };
 		EAC95A311E49B47500819529 /* TimeUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeUtil.cpp; path = src/Engine/Util/TimeUtil.cpp; sourceTree = "<group>"; };
 		EAC95A321E49B47500819529 /* TimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeUtil.h; path = src/Engine/Util/TimeUtil.h; sourceTree = "<group>"; };
+		EAD717901E7A91CF00337DF2 /* SceneFileParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneFileParser.cpp; path = src/Engine/Util/SceneFileParser.cpp; sourceTree = "<group>"; };
+		EAD717911E7A91CF00337DF2 /* SceneFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneFileParser.h; path = src/Engine/Util/SceneFileParser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA0493CD1E704F8200E019B4 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				EA0493CE1E70501700E019B4 /* scene.xml */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		EA17DBB81E2A313D004CFA19 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +136,7 @@
 		EA17DBC31E2A313D004CFA19 /* XMEngine */ = {
 			isa = PBXGroup;
 			children = (
+				EA0493CD1E704F8200E019B4 /* assets */,
 				EA17DBD71E2C6EF5004CFA19 /* src */,
 			);
 			path = XMEngine;
@@ -165,6 +184,10 @@
 		EA281C151E30AE0000AFE86B /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				EAD717901E7A91CF00337DF2 /* SceneFileParser.cpp */,
+				EAD717911E7A91CF00337DF2 /* SceneFileParser.h */,
+				EA0493D51E705D3100E019B4 /* tinyxml2.cpp */,
+				EA0493D61E705D3100E019B4 /* tinyxml2.h */,
 				EA281C331E33AFC200AFE86B /* SingletonBase.h */,
 				EAC95A311E49B47500819529 /* TimeUtil.cpp */,
 				EAC95A321E49B47500819529 /* TimeUtil.h */,
@@ -185,6 +208,8 @@
 				EA8C92311E6195C600A04145 /* TextAsset.h */,
 				EA8C92331E686F0A00A04145 /* DefaultResources.cpp */,
 				EA8C92341E686F0A00A04145 /* DefaultResources.h */,
+				EA0493D81E7264D400E019B4 /* XMLAsset.cpp */,
+				EA0493D91E7264D400E019B4 /* XMLAsset.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -204,9 +229,9 @@
 			children = (
 				EA8C92261E5BEB9200A04145 /* Resources */,
 				EABCB3221E34AB2C009C0502 /* EngineCore.cpp */,
+				EABCB3251E34AB2C009C0502 /* EngineVertexBuffer.h */,
 				EABCB3231E34AB2C009C0502 /* EngineCore.h */,
 				EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */,
-				EABCB3251E34AB2C009C0502 /* EngineVertexBuffer.h */,
 				EABA32DF1E3DA2C1007EA312 /* EngineGameLoop.cpp */,
 				EABA32E01E3DA2C1007EA312 /* EngineGameLoop.h */,
 				EA65086B1E4CCC87006B925A /* EngineInput.cpp */,
@@ -275,18 +300,21 @@
 				EABCB3261E34AB2C009C0502 /* EngineCore.cpp in Sources */,
 				EA281C311E33AFB900AFE86B /* shader.cpp in Sources */,
 				EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */,
+				EAD717921E7A91CF00337DF2 /* SceneFileParser.cpp in Sources */,
 				EA8C92321E6195C600A04145 /* TextAsset.cpp in Sources */,
 				EA4593581E374DED00C2E885 /* Transform.cpp in Sources */,
 				EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */,
 				EA281C231E33AF9D00AFE86B /* main.cpp in Sources */,
 				EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */,
 				EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */,
+				EA0493DA1E7264D500E019B4 /* XMLAsset.cpp in Sources */,
 				EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */,
 				EABA32E11E3DA2C1007EA312 /* EngineGameLoop.cpp in Sources */,
 				EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */,
 				EA281C261E33AFA700AFE86B /* MyGame.cpp in Sources */,
 				EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */,
 				EA8C92351E686F0A00A04145 /* DefaultResources.cpp in Sources */,
+				EA0493D71E705D3100E019B4 /* tinyxml2.cpp in Sources */,
 				EA8C92291E5BF4E900A04145 /* ResourceMap.cpp in Sources */,
 				EABCB3201E34A688009C0502 /* Renderable.cpp in Sources */,
 			);

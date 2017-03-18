@@ -9,6 +9,7 @@
 
 #include "TextFileLoader.h"
 #include "TextAsset.h"
+#include "XMLAsset.h"
 
 namespace gEngine{
 
@@ -40,7 +41,8 @@ namespace gEngine{
             }
             else if(fileType == E_XML_FILE)
             {
-                //TODO
+                std::shared_ptr<Asset> fileContent(new XMLAsset(textContent));
+                (ResourceMap::getInstance())->asyncLoadCompleted(fileName, fileContent);
             }
         }
                 

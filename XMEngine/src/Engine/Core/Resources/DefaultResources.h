@@ -40,8 +40,8 @@ private:
     DefaultResources(const DefaultResources&){};
     DefaultResources &operator=(const DefaultResources&);
     
-    const std::string kSimpleVS = "GLSLShaders/SimpleVS.glsl";
-    const std::string kSimpleFS = "GLSLShaders/SimpleFS.glsl";
+    const std::string kSimpleVS = "src/GLSLShaders/SimpleVS.glsl";
+    const std::string kSimpleFS = "src/GLSLShaders/SimpleFS.glsl";
     
     std::shared_ptr<SimpleShader> mConstColorShader;
 };

@@ -18,7 +18,7 @@ class TextAsset:public Asset
 public:
     TextAsset();
     TextAsset(std::string text);
-    ~TextAsset();
+    virtual ~TextAsset();
     std::string getTextContent();
     void setTextContent(std::string text);
 private:

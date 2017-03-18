@@ -23,12 +23,12 @@
 class MyGame
 {
 private:
-    gEngine::SimpleShader *mConstColorShader;
-    gEngine::Renderable *mWhiteSq;
-    gEngine::Renderable *mRedSq;
-    gEngine::Camera mCamera;
-    
+    std::shared_ptr<gEngine::Camera> mCamera;
+    std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
 public:
+    std::string kSceneFile = "assets/scene.xml";
+    void loadScene();
+    void unloadScene();
     void initialize();
     void update();
     void draw();

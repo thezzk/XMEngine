@@ -79,7 +79,8 @@ std::shared_ptr<MyGame> Core::getCurrentScene()
     
 void Core::startScene(MyGame& myGame)
 {
-    myGame.initialize();
+    myGame.loadScene();
+    //myGame.initialize();  call initialize only after sync load is done
     currentScene = std::shared_ptr<MyGame>(&myGame);
     (GameLoop::getInstance())->start(&myGame);
 }
