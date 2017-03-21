@@ -66,29 +66,29 @@ int Core::initializeGL()
     return 0;
 }
 
-void Core::setCurrentScene(std::shared_ptr<MyGame> scene)
+void Core::setCurrentScene(std::shared_ptr<Scene> scene)
 {
     currentScene = scene;
 }
     
-std::shared_ptr<MyGame> Core::getCurrentScene()
+std::shared_ptr<Scene> Core::getCurrentScene()
 {
     return currentScene;
 }
    
     
-void Core::startScene(MyGame& myGame)
+void Core::startScene(std::shared_ptr<Scene> scene)
 {
-    myGame.loadScene();
-    //myGame.initialize();  call initialize only after sync load is done
-    currentScene = std::shared_ptr<MyGame>(&myGame);
-    (GameLoop::getInstance())->start(&myGame);
+    scene->loadScene();
+    //scene.initialize();  call initialize only after sync load is done
+    currentScene = scene;
+    (GameLoop::getInstance())->start(currentScene);
 }
 
-int Core::initializeEngineCore(MyGame& myGame)
+int Core::initializeEngineCore(std::shared_ptr<Scene> scene)
 {
     int retval = initializeGL();
-    currentScene = std::shared_ptr<MyGame>(&myGame);
+    currentScene = scene;
     (VertexBuffer::getInstance())->initialize();
     (Input::getInstance())->initialize();
     (DefaultResources::getInstance())->initialize();

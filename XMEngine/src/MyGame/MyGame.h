@@ -19,21 +19,22 @@
 #include "SimpleShader.h"
 #include "Renderable.h"
 #include "Camera.h"
+#include "Scene.h"
 
-class MyGame
+class MyGame: public gEngine::Scene
 {
 private:
     std::shared_ptr<gEngine::Camera> mCamera;
     std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
 public:
     std::string kSceneFile = "assets/scene.xml";
-    void loadScene();
-    void unloadScene();
-    void initialize();
-    void update();
-    void draw();
+    virtual void loadScene();
+    virtual void unloadScene();
+    virtual void initialize();
+    virtual void update();
+    virtual void draw();
     MyGame();
-    ~MyGame();
+    virtual ~MyGame();
     
 };
 #endif /* MyGame_hpp */

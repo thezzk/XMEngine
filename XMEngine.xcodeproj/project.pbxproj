@@ -29,6 +29,8 @@
 		EABCB3271E34AB2C009C0502 /* EngineVertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABCB3241E34AB2C009C0502 /* EngineVertexBuffer.cpp */; };
 		EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC95A311E49B47500819529 /* TimeUtil.cpp */; };
 		EAD717921E7A91CF00337DF2 /* SceneFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAD717901E7A91CF00337DF2 /* SceneFileParser.cpp */; };
+		EAD717991E7ECA6C00337DF2 /* BlueLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAD717971E7ECA6C00337DF2 /* BlueLevel.cpp */; };
+		EAD718021E802A6C00337DF2 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD718011E802A6C00337DF2 /* sfml-audio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +94,11 @@
 		EAC95A321E49B47500819529 /* TimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeUtil.h; path = src/Engine/Util/TimeUtil.h; sourceTree = "<group>"; };
 		EAD717901E7A91CF00337DF2 /* SceneFileParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneFileParser.cpp; path = src/Engine/Util/SceneFileParser.cpp; sourceTree = "<group>"; };
 		EAD717911E7A91CF00337DF2 /* SceneFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneFileParser.h; path = src/Engine/Util/SceneFileParser.h; sourceTree = "<group>"; };
+		EAD717941E7D5FE700337DF2 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scene.h; path = src/Engine/Scene.h; sourceTree = "<group>"; };
+		EAD717961E7D91DF00337DF2 /* BlueLevel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BlueLevel.xml; path = assets/BlueLevel.xml; sourceTree = "<group>"; };
+		EAD717971E7ECA6C00337DF2 /* BlueLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlueLevel.cpp; path = src/MyGame/BlueLevel.cpp; sourceTree = "<group>"; };
+		EAD717981E7ECA6C00337DF2 /* BlueLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlueLevel.h; path = src/MyGame/BlueLevel.h; sourceTree = "<group>"; };
+		EAD718011E802A6C00337DF2 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../../../../Library/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD718021E802A6C00337DF2 /* sfml-audio.framework in Frameworks */,
 				EA17DBD61E2BE2D3004CFA19 /* GLUT.framework in Frameworks */,
 				EA17DBD41E2BE2CC004CFA19 /* OpenGL.framework in Frameworks */,
 			);
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0493CE1E70501700E019B4 /* scene.xml */,
+				EAD717961E7D91DF00337DF2 /* BlueLevel.xml */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -118,6 +127,7 @@
 		EA17DBB81E2A313D004CFA19 = {
 			isa = PBXGroup;
 			children = (
+				EAD718011E802A6C00337DF2 /* sfml-audio.framework */,
 				EA17DBD51E2BE2D3004CFA19 /* GLUT.framework */,
 				EA17DBD31E2BE2CC004CFA19 /* OpenGL.framework */,
 				EA17DBC31E2A313D004CFA19 /* XMEngine */,
@@ -168,6 +178,7 @@
 				EA4593571E374DED00C2E885 /* Transform.h */,
 				EABA32DC1E3C82BE007EA312 /* Camera.cpp */,
 				EABA32DD1E3C82BE007EA312 /* Camera.h */,
+				EAD717941E7D5FE700337DF2 /* Scene.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -177,6 +188,8 @@
 			children = (
 				EA281C241E33AFA700AFE86B /* MyGame.cpp */,
 				EA281C251E33AFA700AFE86B /* MyGame.h */,
+				EAD717971E7ECA6C00337DF2 /* BlueLevel.cpp */,
+				EAD717981E7ECA6C00337DF2 /* BlueLevel.h */,
 			);
 			name = MyGame;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 				EA281C311E33AFB900AFE86B /* shader.cpp in Sources */,
 				EAC95A331E49B47500819529 /* TimeUtil.cpp in Sources */,
 				EAD717921E7A91CF00337DF2 /* SceneFileParser.cpp in Sources */,
+				EAD717991E7ECA6C00337DF2 /* BlueLevel.cpp in Sources */,
 				EA8C92321E6195C600A04145 /* TextAsset.cpp in Sources */,
 				EA4593581E374DED00C2E885 /* Transform.cpp in Sources */,
 				EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */,

@@ -16,6 +16,7 @@
 namespace gEngine {
 void GameLoop::runLoop()
 {
+    
     while(mIsLoopRunning)   //A: the loop itself
     {
         //B: compute elapsed time since last RunLoop was executed
@@ -40,9 +41,15 @@ void GameLoop::runLoop()
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    
+    if(mIsLoopRunning == false)
+    {
+        // when loop stop unload the scene
+        myGame->unloadScene();
+    }
 }
 
-void GameLoop::start(MyGame *myGame)
+void GameLoop::start(std::shared_ptr<Scene> myGame)
 {
     this->myGame = myGame;
     (ResourceMap::getInstance())->setLoadCompleteCallback(loadSceneCompleteCallback);
@@ -66,6 +73,11 @@ void GameLoop::startLoop()
     //C: start the loop
     runLoop();
  
+}
+    
+void GameLoop::stop()
+{
+    mIsLoopRunning = false;
 }
     
 }// namespace gEngine

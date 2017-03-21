@@ -16,25 +16,28 @@
 #include "SceneFileParser.h"
 #include "sstream"
 #include "vector"
+#include "SFML/Audio.hpp"
 using namespace std;
 
-void callbackfoo()
-{
-    cout<<"are you ok"<<endl;
-    gEngine::SceneFileParser mSceneFileFarser("assets/scene.xml");
-    gEngine::XmlElmListType x = mSceneFileFarser.getElm("Square");
-    vector<int> colorArray;
-    colorArray = gEngine::SceneFileParser::xmlStringSplit<int>(x[0]->Attribute("Color"));
-    for(int i=0; i<colorArray.size(); i++)
-    {
-        cout<<colorArray[i]<<endl;
-    }
-}
+
 
 int main( void )
 {
+    /*sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("assets/sounds/BlueLevel_cue.wav"))
+        return -1;
+    
+    
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    
+
+    while(1)
+    {
+        sound.play();
+    }*/
    
     
-     MyGame newGame;
+    std::shared_ptr<MyGame> newGame(new MyGame());
     (gEngine::Core::getInstance())->initializeEngineCore(newGame);
 }

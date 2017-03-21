@@ -32,7 +32,7 @@ public:
         std::cout<<"load Resources complete, this is the callback"<<std::endl;
         (DefaultResources::getInstance())->createShaders();
         //StartScene
-        (Core::getInstance())->startScene(*(Core::getInstance())->getCurrentScene());
+        (Core::getInstance())->startScene((Core::getInstance())->getCurrentScene());
     }
 private:
     //Singleton pattern support

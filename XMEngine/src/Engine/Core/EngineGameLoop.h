@@ -31,7 +31,9 @@ public:
     const int kFPS = 60; // Frames per second
     const int kMPF = 1000 / kFPS;  // Milleseconds per frame
     
-    void start(MyGame* myGame);
+    void start(std::shared_ptr<Scene> myGame);
+    void stop();
+    
 private:
     /*Singleton pattern support*/
     GameLoop(){}
@@ -49,7 +51,7 @@ private:
     bool mIsLoopRunning = false;
     
     // Reference to game logic
-    MyGame* myGame;
+    std::shared_ptr<Scene> myGame;
     
     void runLoop();
     void startLoop();
