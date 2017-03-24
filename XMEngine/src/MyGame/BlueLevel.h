@@ -31,6 +31,8 @@ public:
     
 private:
     std::string kSceneFile = "assets/BlueLevel.xml";
+    std::string kBgClip = "assets/sounds/BGClip.wav";
+    std::string kCue = "assets/sounds/BlueLevel_cue.wav";
     
 };
 

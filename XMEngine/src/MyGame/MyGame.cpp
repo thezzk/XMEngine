@@ -18,6 +18,7 @@
 #include "TextFileLoader.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include "BlueLevel.h"
+#include "AudioClips.h"
 
 MyGame::MyGame()
 {
@@ -30,9 +31,16 @@ MyGame::~MyGame()
 void MyGame::loadScene()
 {
     (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
+    (gEngine::AudioClips::getInstance())->loadAudio(kBgClip);
+    (gEngine::AudioClips::getInstance())->loadAudio(kCue);
 }
 void MyGame::unloadScene()
 {
+    //Stop BGM
+    (gEngine::AudioClips::getInstance())->stopBackgroundAudio();
+    //(gEngine::AudioClips::getInstance())->unloadAudio(kBgClip);
+    //The above line is commented out because the BGM clip will use in the next level!
+    (gEngine::AudioClips::getInstance())->unloadAudio(kCue);
     (gEngine::TextFileLoader::getInstance())->unloadTextFile(kSceneFile);
     std::shared_ptr<Scene> nextLevel(new BlueLevel());
     (gEngine::Core::getInstance())->startScene(nextLevel);
@@ -45,6 +53,8 @@ void MyGame::initialize()
     mCamera = sceneFileParser.parseCamera();
     //B: Squares
     mSqSet = sceneFileParser.parseSquares();
+    
+    (gEngine::AudioClips::getInstance())->playBackgroundAudio(kBgClip);
 }
 void MyGame::update()
 {
@@ -56,6 +66,7 @@ void MyGame::update()
         {
             whiteXform.setPosition(10.0f, 60.0f);
         }
+        (gEngine::AudioClips::getInstance())->playACue(kCue);
         whiteXform.incXPosBy(0.05f);
     }
     
@@ -75,6 +86,7 @@ void MyGame::update()
     
     if((gEngine::Input::getInstance())->isKeyPressed(KEY_A))
     {
+        (gEngine::AudioClips::getInstance())->playACue(kCue);
         redXform.incXPosBy(-0.05f);
         if(redXform.getXPos() < 11.0f)
         {

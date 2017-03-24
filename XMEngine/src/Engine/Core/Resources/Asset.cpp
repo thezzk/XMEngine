@@ -10,9 +10,14 @@
 
 namespace gEngine{
     
-    Asset::~Asset()
+    Asset::Asset():refCount(1)
     {
         
     }
     
+    Asset::~Asset()
+    {
+        
+    }
+        
 } //namespace gEngine

@@ -15,8 +15,6 @@
 #include "ResourceMap.h"
 namespace gEngine {
 
-    
-    
 class TextFileLoader: public SingletonBase<TextFileLoader>
 {
     
@@ -35,8 +33,8 @@ private:
     TextFileLoader(){};
     TextFileLoader(const TextFileLoader&){}
     TextFileLoader &operator=(const TextFileLoader&);
-    
-    
+    //For async load
+    static void loadTextFileTask(std::string fileName, eTextFileType fileType);
 };
     
 } //namespace gEngine

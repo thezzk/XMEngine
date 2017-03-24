@@ -17,27 +17,21 @@
 #include "sstream"
 #include "vector"
 #include "SFML/Audio.hpp"
+#include "unistd.h"
+#include "SoundAsset.h"
 using namespace std;
 
 
 
 int main( void )
 {
-    /*sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("assets/sounds/BlueLevel_cue.wav"))
-        return -1;
     
-    
-    sf::Sound sound;
-    sound.setBuffer(buffer);
-    
-
-    while(1)
-    {
-        sound.play();
-    }*/
-   
+    /*gEngine::SoundAssets soundAssets("assets/sounds/BGClip.wav");
+    soundAssets.getSound().play();
+    while(1){}*/
     
     std::shared_ptr<MyGame> newGame(new MyGame());
     (gEngine::Core::getInstance())->initializeEngineCore(newGame);
+    
+    
 }

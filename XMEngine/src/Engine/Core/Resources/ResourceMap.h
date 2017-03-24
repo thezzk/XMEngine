@@ -30,12 +30,22 @@ public:
     void asyncLoadRequest(std::string rName);
     void asyncLoadCompleted(std::string rName, std::shared_ptr<Asset> loadedAsset);
     bool isAssetLoaded(std::string rName);
-    void unloadAsset(std::string rName);
+    int unloadAsset(std::string rName);
+    void incAssetRefCount(std::string rName);
     
     template<typename T>
     std::shared_ptr<T> retrieveAsset(std::string rName)
     {
-        assert(dynamic_cast<T*>(mResourceMap[rName].get()) != NULL);
+        if(mResourceMap.find(rName) == mResourceMap.end())
+        {
+            std::cout<<"Can not find Asset: "<<rName<<std::endl;
+            return NULL;
+        }
+        if(dynamic_cast<T*>(mResourceMap[rName].get()) == NULL)
+        {
+            std::cout<<"Incorrect type of Asset:"<<rName<<std::endl;
+            return NULL;
+        }
         std::shared_ptr<T> derivedAsset = std::dynamic_pointer_cast<T>(mResourceMap[rName]);
         return derivedAsset;
     }
@@ -49,8 +59,10 @@ private:
     std::map<std::string, std::shared_ptr<Asset>> mResourceMap;
     int mNumOutstandingLoads;
     CallbackFuncType mLoadCompleteCallback;
+    
+    std::mutex loadCompleteMutex;
     //Member function
-    void checkForAllLoadComplete();
+    bool checkForAllLoadComplete();
     
 };
     

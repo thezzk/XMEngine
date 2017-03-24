@@ -8,13 +8,15 @@
 
 #include "ResourceMap.h"
 #include "assert.h"
+#include "mutex"
 
 namespace gEngine {
 
     void ResourceMap::setLoadCompleteCallback(CallbackFuncType funct)
     {
         mLoadCompleteCallback = funct;
-        checkForAllLoadComplete();
+        while(!checkForAllLoadComplete()){};
+        //Wait for all async load complete
     }
     
     void ResourceMap::asyncLoadRequest(std::string rName)
@@ -25,6 +27,7 @@ namespace gEngine {
     
     void ResourceMap::asyncLoadCompleted(std::string rName, std::shared_ptr<Asset> loadedAsset)
     {
+        std::lock_guard<std::mutex> mux(loadCompleteMutex);
         if(isAssetLoaded(rName))
         {//Do Nothing!
         }
@@ -34,8 +37,6 @@ namespace gEngine {
         }
         mResourceMap[rName] = loadedAsset;
         --mNumOutstandingLoads;
-        checkForAllLoadComplete();
-
     }
     
     bool ResourceMap::isAssetLoaded(std::string rName)
@@ -47,7 +48,7 @@ namespace gEngine {
         return true;
     }
     
-    void ResourceMap::checkForAllLoadComplete()
+    bool ResourceMap::checkForAllLoadComplete()
     {
         if((mNumOutstandingLoads == 0) && (mLoadCompleteCallback != NULL))
         {
@@ -55,19 +56,31 @@ namespace gEngine {
             CallbackFuncType funToCall = mLoadCompleteCallback;
             mLoadCompleteCallback = NULL;
             funToCall();
+            return true;
         }
+        return false;
     }
     
     
-    void ResourceMap::unloadAsset(std::string rName)
+    int ResourceMap::unloadAsset(std::string rName)
     {
+        int count = 0;
         if(mResourceMap.find(rName) != mResourceMap.end())
         {
-            mResourceMap.erase(mResourceMap.find(rName));
+            mResourceMap[rName]->refCount -= 1;
+            count = mResourceMap[rName]->refCount;
+            if(count == 0)
+            {
+                mResourceMap.erase(mResourceMap.find(rName));
+            }
         }
+        return count;
     }
     
-    
+    void ResourceMap::incAssetRefCount(std::string rName)
+    {
+        mResourceMap[rName]->refCount += 1;
+    }
     
 }
 

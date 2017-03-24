@@ -12,6 +12,7 @@
 #include "EngineInput.h"
 #include "EngineGameLoop.h"
 #include "EngineCore.h"
+#include "AudioClips.h"
 
 BlueLevel::BlueLevel()
 {
@@ -25,6 +26,8 @@ BlueLevel::~BlueLevel()
 void BlueLevel::loadScene()
 {
     (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
+    (gEngine::AudioClips::getInstance())->loadAudio(kBgClip);
+    (gEngine::AudioClips::getInstance())->loadAudio(kCue);
 }
 
 void BlueLevel::initialize()
@@ -34,6 +37,8 @@ void BlueLevel::initialize()
     mCamera = sceneFileParser.parseCamera();
     //B: Squares
     mSqSet = sceneFileParser.parseSquares();
+    
+    (gEngine::AudioClips::getInstance())->playBackgroundAudio(kBgClip);
 }
 
 void BlueLevel::update()
@@ -46,6 +51,7 @@ void BlueLevel::update()
         {
             whiteXform.setPosition(10.0f, 60.0f);
         }
+        (gEngine::AudioClips::getInstance())->playACue(kCue);
         whiteXform.incXPosBy(0.05f);
     }
     
@@ -65,6 +71,7 @@ void BlueLevel::update()
     
     if((gEngine::Input::getInstance())->isKeyPressed(KEY_A))
     {
+        (gEngine::AudioClips::getInstance())->playACue(kCue);
         redXform.incXPosBy(-0.05f);
         if(redXform.getXPos() < 11.0f)
         {
@@ -76,6 +83,11 @@ void BlueLevel::update()
 
 void BlueLevel::unloadScene()
 {
+    //Stop BGM
+    (gEngine::AudioClips::getInstance())->stopBackgroundAudio();
+    
+    (gEngine::AudioClips::getInstance())->unloadAudio(kBgClip);
+    (gEngine::AudioClips::getInstance())->unloadAudio(kCue);
     (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
     std::shared_ptr<Scene> nextLevel(new MyGame());
     (gEngine::Core::getInstance())->startScene(nextLevel);

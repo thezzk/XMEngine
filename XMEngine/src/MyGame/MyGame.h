@@ -28,6 +28,8 @@ private:
     std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
 public:
     std::string kSceneFile = "assets/scene.xml";
+    std::string kBgClip = "assets/sounds/BGClip.wav";
+    std::string kCue = "assets/sounds/MyGame_cue.wav";
     virtual void loadScene();
     virtual void unloadScene();
     virtual void initialize();

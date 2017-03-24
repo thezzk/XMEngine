@@ -11,16 +11,21 @@
 
 #include "iostream"
 
+
 namespace gEngine{
     
 class Asset
 {
+    
 public:
-    enum AssetType
+    int refCount;
+    /*enum AssetType
     {
         NONE = 0,
         TEXT = 1
-    };
+        
+    };*/
+    Asset();
     virtual ~Asset();
 };
     

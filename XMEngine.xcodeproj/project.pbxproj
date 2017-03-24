@@ -17,6 +17,8 @@
 		EA281C321E33AFB900AFE86B /* SimpleShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA281C2D1E33AFB900AFE86B /* SimpleShader.cpp */; };
 		EA4593581E374DED00C2E885 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA4593561E374DED00C2E885 /* Transform.cpp */; };
 		EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA65086B1E4CCC87006B925A /* EngineInput.cpp */; };
+		EA7083071E825A55005EEF22 /* AudioClips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA7083051E825A55005EEF22 /* AudioClips.cpp */; };
+		EA70830A1E826A0C005EEF22 /* SoundAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA7083081E826A0C005EEF22 /* SoundAsset.cpp */; };
 		EA8C92291E5BF4E900A04145 /* ResourceMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */; };
 		EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C922A1E5C0B4600A04145 /* Asset.cpp */; };
 		EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA8C922D1E602B3C00A04145 /* TextFileLoader.cpp */; };
@@ -67,6 +69,10 @@
 		EA65086B1E4CCC87006B925A /* EngineInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineInput.cpp; path = src/Engine/Core/EngineInput.cpp; sourceTree = "<group>"; };
 		EA65086C1E4CCC87006B925A /* EngineInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineInput.h; path = src/Engine/Core/EngineInput.h; sourceTree = "<group>"; };
 		EA6508711E4E0374006B925A /* KeycodeDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeycodeDef.h; path = src/Engine/Core/KeycodeDef.h; sourceTree = "<group>"; };
+		EA7083051E825A55005EEF22 /* AudioClips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioClips.cpp; path = src/Engine/Core/Resources/AudioClips.cpp; sourceTree = "<group>"; };
+		EA7083061E825A55005EEF22 /* AudioClips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioClips.h; path = src/Engine/Core/Resources/AudioClips.h; sourceTree = "<group>"; };
+		EA7083081E826A0C005EEF22 /* SoundAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoundAsset.cpp; path = src/Engine/Core/Resources/SoundAsset.cpp; sourceTree = "<group>"; };
+		EA7083091E826A0C005EEF22 /* SoundAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundAsset.h; path = src/Engine/Core/Resources/SoundAsset.h; sourceTree = "<group>"; };
 		EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceMap.cpp; path = src/Engine/Core/Resources/ResourceMap.cpp; sourceTree = "<group>"; };
 		EA8C92281E5BF4E900A04145 /* ResourceMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceMap.h; path = src/Engine/Core/Resources/ResourceMap.h; sourceTree = "<group>"; };
 		EA8C922A1E5C0B4600A04145 /* Asset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Asset.cpp; path = src/Engine/Core/Resources/Asset.cpp; sourceTree = "<group>"; };
@@ -211,6 +217,8 @@
 		EA8C92261E5BEB9200A04145 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EA7083051E825A55005EEF22 /* AudioClips.cpp */,
+				EA7083061E825A55005EEF22 /* AudioClips.h */,
 				EA8C92271E5BF4E900A04145 /* ResourceMap.cpp */,
 				EA8C92281E5BF4E900A04145 /* ResourceMap.h */,
 				EA8C922A1E5C0B4600A04145 /* Asset.cpp */,
@@ -223,6 +231,8 @@
 				EA8C92341E686F0A00A04145 /* DefaultResources.h */,
 				EA0493D81E7264D400E019B4 /* XMLAsset.cpp */,
 				EA0493D91E7264D400E019B4 /* XMLAsset.h */,
+				EA7083081E826A0C005EEF22 /* SoundAsset.cpp */,
+				EA7083091E826A0C005EEF22 /* SoundAsset.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -320,6 +330,7 @@
 				EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */,
 				EA281C231E33AF9D00AFE86B /* main.cpp in Sources */,
 				EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */,
+				EA70830A1E826A0C005EEF22 /* SoundAsset.cpp in Sources */,
 				EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */,
 				EA0493DA1E7264D500E019B4 /* XMLAsset.cpp in Sources */,
 				EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */,
@@ -330,6 +341,7 @@
 				EA8C92351E686F0A00A04145 /* DefaultResources.cpp in Sources */,
 				EA0493D71E705D3100E019B4 /* tinyxml2.cpp in Sources */,
 				EA8C92291E5BF4E900A04145 /* ResourceMap.cpp in Sources */,
+				EA7083071E825A55005EEF22 /* AudioClips.cpp in Sources */,
 				EABCB3201E34A688009C0502 /* Renderable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

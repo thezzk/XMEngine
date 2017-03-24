@@ -139,4 +139,5 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileFactory.hpp \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileFactory.inl \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileReader.hpp \
-  /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileWriter.hpp
+  /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileWriter.hpp \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/SoundAsset.h
