@@ -20,16 +20,27 @@
 #include "Renderable.h"
 #include "Camera.h"
 #include "Scene.h"
+#include "SpriteRenderable.h"
 
 class MyGame: public gEngine::Scene
 {
 private:
     std::shared_ptr<gEngine::Camera> mCamera;
-    std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
-public:
-    std::string kSceneFile = "assets/scene.xml";
+    std::shared_ptr<gEngine::SpriteRenderable> mHero;
+    std::shared_ptr<gEngine::SpriteRenderable> mPortal;
+    std::shared_ptr<gEngine::SpriteRenderable> mCollector;
+    std::shared_ptr<gEngine::SpriteRenderable> mFontImage;
+    std::shared_ptr<gEngine::SpriteRenderable> mMinion;
+    
+ public:
+   
     std::string kBgClip = "assets/sounds/BGClip.wav";
     std::string kCue = "assets/sounds/MyGame_cue.wav";
+    //std::string kPortal = "assets/minion_portal.tga";
+    //std::string kCollector = "assets/minion_collector.tga";
+    std::string kMinionSprite = "assets/minion_sprite.tga";
+    std::string kFontImage = "assets/Consolas-72.tga";
+    
     virtual void loadScene();
     virtual void unloadScene();
     virtual void initialize();

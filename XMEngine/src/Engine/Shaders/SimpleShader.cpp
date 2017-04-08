@@ -13,6 +13,11 @@
 
 namespace gEngine {
 
+SimpleShader::~SimpleShader()
+{
+    
+}
+
 GLuint SimpleShader::compileShader(const std::string path, GLuint shaderType)
 {
     //Step A: Get the shader source
@@ -102,7 +107,7 @@ void SimpleShader::loadObjectTransform(glm::mat4 modelTransform)
     glUniformMatrix4fv(mModelTransform, 1, GL_FALSE, &modelTransform[0][0]);
 }
 
-inline GLuint SimpleShader::getShader()
+GLuint SimpleShader::getShader()
 {
     return this->mCompiledShader;
 }

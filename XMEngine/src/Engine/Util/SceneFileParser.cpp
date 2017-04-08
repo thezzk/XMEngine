@@ -50,10 +50,10 @@ namespace gEngine{
         cam->setBackgroundColor(bgColor);
         return cam;
     }
-    std::vector<std::shared_ptr<Renderable>> SceneFileParser::parseSquares()
+    void SceneFileParser::parseSquares(std::vector<std::shared_ptr<Renderable>>& squares)
     {
         XmlElmListType squareElms = getElm("Square");
-        std::vector<std::shared_ptr<Renderable>> squares;
+        
         for(int i = 0; i < squareElms.size(); i++)
         {
             float x = squareElms[i]->FindAttribute("PosX")->FloatValue();
@@ -64,14 +64,39 @@ namespace gEngine{
             std::vector<float> c =
             xmlStringSplit<float>(squareElms[i]->FindAttribute("Color")->Value());
             //create square and set it
-            std::shared_ptr<Renderable> sq(new Renderable(*(DefaultResources::getInstance())->getConstColorShader()));
+            std::shared_ptr<Renderable> sq(new Renderable());
             sq->setColor(c);
             sq->getXform().setPosition(x, y);
             sq->getXform().setRotationInDegree(r);
             sq->getXform().setSize(w, h);
             squares.push_back(sq);
         }
-        return squares;
+    }
+    
+    void SceneFileParser::parseTextureSquares(std::vector<std::shared_ptr<Renderable>>& squares)
+    {
+        XmlElmListType squareElms = getElm("TextureSquare");
+        
+        for(int i = 0; i < squareElms.size(); i++)
+        {
+            float x = squareElms[i]->FindAttribute("PosX")->FloatValue();
+            float y = squareElms[i]->FindAttribute("PosY")->FloatValue();
+            float w = squareElms[i]->FindAttribute("Width")->FloatValue();
+            float h = squareElms[i]->FindAttribute("Height")->FloatValue();
+            float r = squareElms[i]->FindAttribute("Rotation")->FloatValue();
+            std::string path(squareElms[i]->FindAttribute("Texture")->Value());
+            std::vector<float> c =
+            xmlStringSplit<float>(squareElms[i]->FindAttribute("Color")->Value());
+            //create square and set it
+            std::shared_ptr<TextureRenderable> sq(new TextureRenderable(path));
+            sq->setColor(c);
+            sq->getXform().setPosition(x, y);
+            sq->getXform().setRotationInDegree(r);
+            sq->getXform().setSize(w, h);
+            squares.push_back(sq);
+        }
+        
+        
     }
     
 } //namespace gEngine

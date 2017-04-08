@@ -22,6 +22,7 @@ public:
     friend SingletonBase<VertexBuffer>;
     void initialize();
     const GLuint getGLVertexRef() const;
+    const GLuint getGLTexCoordRef() const;
 private:
     /*Singleton pattern support*/
     VertexBuffer(){}
@@ -30,7 +31,9 @@ private:
     /*-------------------------*/
     
     const static GLfloat verticesOfSquare[];
+    const static GLfloat textureCoordinates[];
     GLuint mSquareVertexBuffer;
+    GLuint mTextureCoordBuffer;
     
 };
 } // namespace gEngine

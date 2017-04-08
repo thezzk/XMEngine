@@ -13,6 +13,7 @@
 #include "EngineGameLoop.h"
 #include "EngineCore.h"
 #include "AudioClips.h"
+#include "EngineTexture.h"
 
 BlueLevel::BlueLevel()
 {
@@ -28,6 +29,9 @@ void BlueLevel::loadScene()
     (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
     (gEngine::AudioClips::getInstance())->loadAudio(kBgClip);
     (gEngine::AudioClips::getInstance())->loadAudio(kCue);
+    
+    (gEngine::Textures::getInstance())->loadTexture(kPortal);
+    (gEngine::Textures::getInstance())->loadTexture(kCollector);
 }
 
 void BlueLevel::initialize()
@@ -36,7 +40,8 @@ void BlueLevel::initialize()
     //A: Camera
     mCamera = sceneFileParser.parseCamera();
     //B: Squares
-    mSqSet = sceneFileParser.parseSquares();
+    sceneFileParser.parseSquares(mSqSet);
+    sceneFileParser.parseTextureSquares(mSqSet);
     
     (gEngine::AudioClips::getInstance())->playBackgroundAudio(kBgClip);
 }
@@ -79,6 +84,15 @@ void BlueLevel::update()
         }
     }
     
+    //continously charge texture tinting
+    std::vector<GLfloat> c = mSqSet[1]->getColor();
+    GLfloat ca = c[3] + 0.05f;
+    if(ca > 1)
+    {
+        ca = 0.0f;
+    }
+    c[3] = ca;
+    mSqSet[1]->setColor(c);
 }
 
 void BlueLevel::unloadScene()
@@ -88,7 +102,10 @@ void BlueLevel::unloadScene()
     
     (gEngine::AudioClips::getInstance())->unloadAudio(kBgClip);
     (gEngine::AudioClips::getInstance())->unloadAudio(kCue);
-    (gEngine::TextFileLoader::getInstance())->loadTextFile(kSceneFile, gEngine::TextFileLoader::E_XML_FILE);
+    
+    (gEngine::TextFileLoader::getInstance())->unloadTextFile(kSceneFile);
+    (gEngine::Textures::getInstance())->unloadTexture(kPortal);
+    (gEngine::Textures::getInstance())->unloadTexture(kCollector);
     std::shared_ptr<Scene> nextLevel(new MyGame());
     (gEngine::Core::getInstance())->startScene(nextLevel);
 }
@@ -104,6 +121,7 @@ void BlueLevel::draw()
     {
         mSqSet[i]->draw(mCamera->getVPMatrix());
     }
+    
     
 }
 

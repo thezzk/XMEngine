@@ -78,17 +78,21 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/SingletonBase.h \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/SimpleShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SimpleShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/TextureShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SpriteShader.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineCore.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/MyGame/MyGame.h \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/../gtc/constants.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.inl \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderable.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/Renderable.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Transform.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Scene.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/SpriteRenderable.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/TextureRenderable.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineGameLoop.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/ResourceMap.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/Asset.h \

@@ -24,13 +24,16 @@ namespace gEngine{
 class Renderable
 {
 public:
-    Renderable(SimpleShader shader);
-    void draw(glm::mat4 vpMatrix);
+    Renderable();
+    virtual ~Renderable();
+    virtual void draw(glm::mat4 vpMatrix);
+    void setShader(std::shared_ptr<SimpleShader> s);
+    std::shared_ptr<SimpleShader> getShader();
     void setColor(std::vector<GLfloat> color);
     std::vector<GLfloat> getColor();
     Transform& getXform();
 private:
-    SimpleShader mShader;
+    std::shared_ptr<SimpleShader> mShader;
     Transform mXform;
     std::vector<GLfloat> mColor;
 };

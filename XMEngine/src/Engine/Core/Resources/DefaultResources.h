@@ -16,6 +16,8 @@
 
 #include "SingletonBase.h"
 #include "SimpleShader.h"
+#include "TextureShader.h"
+#include "SpriteShader.h"
 #include "EngineCore.h"
 
 namespace gEngine{
@@ -27,6 +29,8 @@ public:
     void createShaders();
     void initialize();
     std::shared_ptr<SimpleShader> getConstColorShader();
+    std::shared_ptr<TextureShader> getTextureShader();
+    std::shared_ptr<SpriteShader> getSpriteShader();
     static void LoadCompleteCallback()
     {
         std::cout<<"load Resources complete, this is the callback"<<std::endl;
@@ -42,8 +46,12 @@ private:
     
     const std::string kSimpleVS = "src/GLSLShaders/SimpleVS.glsl";
     const std::string kSimpleFS = "src/GLSLShaders/SimpleFS.glsl";
+    const std::string kTextureVS = "src/GLSLShaders/TextureVS.glsl";
+    const std::string kTextureFS = "src/GLSLShaders/TextureFS.glsl";
     
     std::shared_ptr<SimpleShader> mConstColorShader;
+    std::shared_ptr<TextureShader> mTextureShader;
+    std::shared_ptr<SpriteShader> mSpriteShader;
 };
     
 } //namespace gEngine

@@ -17,6 +17,7 @@
 #include "XMLAsset.h"
 #include "Camera.h"
 #include "Renderable.h"
+#include "TextureRenderable.h"
 
 namespace gEngine{
 typedef std::vector<const tinyxml2::XMLElement*> XmlElmListType;
@@ -42,7 +43,8 @@ public:
     
     // unstable code
     std::shared_ptr<Camera> parseCamera();
-    std::vector<std::shared_ptr<Renderable>> parseSquares();
+    void parseSquares(std::vector<std::shared_ptr<Renderable>>& squares);
+    void parseTextureSquares(std::vector<std::shared_ptr<Renderable>>& squares);
     
 private:
     std::shared_ptr<XMLAsset> mSceneXml;

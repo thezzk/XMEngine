@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/SimpleShader.cpp \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/SimpleShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SimpleShader.cpp \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SimpleShader.h \
   /usr/local/Cellar/glew/1.13.0/include/GL/glew.h \
   /usr/local/Cellar/glfw/3.2.1/include/GLFW/glfw3.h \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/glm.hpp \

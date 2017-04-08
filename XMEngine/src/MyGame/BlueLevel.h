@@ -15,6 +15,7 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "Renderable.h"
+#include "TextureRenderable.h"
 
 class BlueLevel:public gEngine::Scene
 {
@@ -26,13 +27,17 @@ public:
     virtual void unloadScene();
     virtual void update();
     virtual void draw();
-    std::shared_ptr<gEngine::Camera> mCamera;
-    std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
+    
     
 private:
     std::string kSceneFile = "assets/BlueLevel.xml";
     std::string kBgClip = "assets/sounds/BGClip.wav";
     std::string kCue = "assets/sounds/BlueLevel_cue.wav";
+    std::string kPortal = "assets/minion_portal.tga";
+    std::string kCollector = "assets/minion_collector.tga";
+    std::vector<std::shared_ptr<gEngine::Renderable>> mSqSet;
+    std::shared_ptr<gEngine::Camera> mCamera;
+
     
 };
 

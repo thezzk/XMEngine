@@ -21,7 +21,8 @@ class SimpleShader
 {
 public:
     SimpleShader(std::string vertexFilePath, std::string fragmentFilePath);
-    void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
+    virtual ~SimpleShader();
+    virtual void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
     void loadObjectTransform(glm::mat4 modelTransform);
     GLuint compileShader(std::string path, GLuint shaderType);
     GLuint getShader();
