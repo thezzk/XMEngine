@@ -17,6 +17,7 @@
 		EA4593581E374DED00C2E885 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA4593561E374DED00C2E885 /* Transform.cpp */; };
 		EA5CD2051E9671D300330485 /* SpriteShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA5CD2031E9671D300330485 /* SpriteShader.cpp */; };
 		EA5CD2081E97ED3A00330485 /* SpriteRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA5CD2061E97ED3A00330485 /* SpriteRenderable.cpp */; };
+		EA5CD20B1E9A4BBD00330485 /* SpriteAnimateRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA5CD2091E9A4BBD00330485 /* SpriteAnimateRenderable.cpp */; };
 		EA65086D1E4CCC87006B925A /* EngineInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA65086B1E4CCC87006B925A /* EngineInput.cpp */; };
 		EA7083071E825A55005EEF22 /* AudioClips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA7083051E825A55005EEF22 /* AudioClips.cpp */; };
 		EA70830A1E826A0C005EEF22 /* SoundAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA7083081E826A0C005EEF22 /* SoundAsset.cpp */; };
@@ -74,6 +75,8 @@
 		EA5CD2041E9671D300330485 /* SpriteShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteShader.h; path = src/Engine/Shaders/SpriteShader.h; sourceTree = "<group>"; };
 		EA5CD2061E97ED3A00330485 /* SpriteRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteRenderable.cpp; path = src/Engine/Renderables/SpriteRenderable.cpp; sourceTree = "<group>"; };
 		EA5CD2071E97ED3A00330485 /* SpriteRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteRenderable.h; path = src/Engine/Renderables/SpriteRenderable.h; sourceTree = "<group>"; };
+		EA5CD2091E9A4BBD00330485 /* SpriteAnimateRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteAnimateRenderable.cpp; path = src/Engine/Renderables/SpriteAnimateRenderable.cpp; sourceTree = "<group>"; };
+		EA5CD20A1E9A4BBD00330485 /* SpriteAnimateRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteAnimateRenderable.h; path = src/Engine/Renderables/SpriteAnimateRenderable.h; sourceTree = "<group>"; };
 		EA65086B1E4CCC87006B925A /* EngineInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineInput.cpp; path = src/Engine/Core/EngineInput.cpp; sourceTree = "<group>"; };
 		EA65086C1E4CCC87006B925A /* EngineInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineInput.h; path = src/Engine/Core/EngineInput.h; sourceTree = "<group>"; };
 		EA6508711E4E0374006B925A /* KeycodeDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeycodeDef.h; path = src/Engine/Core/KeycodeDef.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				EA7948541E86552700F55476 /* TextureRenderable.h */,
 				EA5CD2061E97ED3A00330485 /* SpriteRenderable.cpp */,
 				EA5CD2071E97ED3A00330485 /* SpriteRenderable.h */,
+				EA5CD2091E9A4BBD00330485 /* SpriteAnimateRenderable.cpp */,
+				EA5CD20A1E9A4BBD00330485 /* SpriteAnimateRenderable.h */,
 			);
 			name = Renderables;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				EA8C922F1E602B3C00A04145 /* TextFileLoader.cpp in Sources */,
 				EA281C231E33AF9D00AFE86B /* main.cpp in Sources */,
 				EA7948581E87916900F55476 /* EngineTexture.cpp in Sources */,
+				EA5CD20B1E9A4BBD00330485 /* SpriteAnimateRenderable.cpp in Sources */,
 				EABA32DE1E3C82BE007EA312 /* Camera.cpp in Sources */,
 				EA70830A1E826A0C005EEF22 /* SoundAsset.cpp in Sources */,
 				EA8C922C1E5C0B4600A04145 /* Asset.cpp in Sources */,

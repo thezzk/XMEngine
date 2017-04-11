@@ -21,16 +21,14 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "SpriteRenderable.h"
+#include "SpriteAnimateRenderable.h"
 
 class MyGame: public gEngine::Scene
 {
 private:
     std::shared_ptr<gEngine::Camera> mCamera;
-    std::shared_ptr<gEngine::SpriteRenderable> mHero;
-    std::shared_ptr<gEngine::SpriteRenderable> mPortal;
-    std::shared_ptr<gEngine::SpriteRenderable> mCollector;
-    std::shared_ptr<gEngine::SpriteRenderable> mFontImage;
-    std::shared_ptr<gEngine::SpriteRenderable> mMinion;
+    std::shared_ptr<gEngine::SpriteAnimateRenderable> mRightMinion;
+    std::shared_ptr<gEngine::SpriteAnimateRenderable> mLeftMinion;
     
  public:
    
