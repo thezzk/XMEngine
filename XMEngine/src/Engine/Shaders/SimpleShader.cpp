@@ -15,7 +15,10 @@ namespace gEngine {
 
 SimpleShader::~SimpleShader()
 {
-    
+    glDetachShader(mCompiledShader, vertexShaderID);
+    glDetachShader(mCompiledShader, fragmentShaderID);
+    glDeleteShader(vertexShaderID);
+    glDeleteShader(fragmentShaderID);
 }
 
 GLuint SimpleShader::compileShader(const std::string path, GLuint shaderType)
@@ -46,8 +49,8 @@ GLuint SimpleShader::compileShader(const std::string path, GLuint shaderType)
 SimpleShader::SimpleShader(std::string vertexFilePath, std::string fragmentFilePath)
 {
     //A: load and compile vertex and fragment shaders
-    GLuint vertexShaderID = compileShader(vertexFilePath, GL_VERTEX_SHADER);
-    GLuint fragmentShaderID  = compileShader(fragmentFilePath, GL_FRAGMENT_SHADER);
+    vertexShaderID = compileShader(vertexFilePath, GL_VERTEX_SHADER);
+    fragmentShaderID  = compileShader(fragmentFilePath, GL_FRAGMENT_SHADER);
     //B: Create and link the shaders into a program and hold the PROGRAM ID
     mCompiledShader = glCreateProgram();
     glAttachShader(mCompiledShader, vertexShaderID);

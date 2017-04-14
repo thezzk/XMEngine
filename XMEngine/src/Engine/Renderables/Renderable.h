@@ -29,8 +29,8 @@ public:
     virtual void draw(glm::mat4 vpMatrix);
     void setShader(std::shared_ptr<SimpleShader> s);
     std::shared_ptr<SimpleShader> getShader();
-    void setColor(std::vector<GLfloat> color);
-    std::vector<GLfloat> getColor();
+    virtual void setColor(std::vector<GLfloat> color);
+    virtual std::vector<GLfloat> getColor();
     Transform& getXform();
 private:
     std::shared_ptr<SimpleShader> mShader;

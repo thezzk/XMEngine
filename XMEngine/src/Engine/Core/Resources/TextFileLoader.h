@@ -34,7 +34,7 @@ private:
     TextFileLoader(const TextFileLoader&){}
     TextFileLoader &operator=(const TextFileLoader&);
     //For async load
-    static void loadTextFileTask(std::string fileName, eTextFileType fileType);
+    void loadTextFileTask(std::string fileName, eTextFileType fileType);
 };
     
 } //namespace gEngine

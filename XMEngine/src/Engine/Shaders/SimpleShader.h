@@ -32,8 +32,8 @@ private:
     GLuint mViewProjTransform;// the V,P of MVP Matrix -- uniform loaction
     GLuint mCompiledShader;
     GLuint mShaderVertexPositionAttribute;
-    
-    
+    GLuint vertexShaderID;
+    GLuint fragmentShaderID;
 };
 }// namespace gEngine
 #endif /* SimpleShader_hpp */

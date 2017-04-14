@@ -5,7 +5,7 @@
 //  Created by thezzk on 17/3/21.
 //  Copyright © 2017年 thezzk. All rights reserved.
 //
-#include "thread"
+//#include "thread"
 
 #include "AudioClips.h"
 #include "ResourceMap.h"

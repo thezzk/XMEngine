@@ -43,6 +43,8 @@ public:
     GLfloat getHeight();
     void incSizeBy(GLfloat delta);
     void decSizeBy(GLfloat delta);
+    void incWidthBy(GLfloat delta);
+    void incHeightBy(GLfloat delta);
     
     /* Rotation */
     void setRotationInRad(GLfloat rotationInRadians);

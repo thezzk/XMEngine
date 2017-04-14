@@ -26,7 +26,7 @@ namespace gEngine {
     
     SpriteShader::~SpriteShader()
     {
-        
+        glDeleteBuffers(1, &mTexCoordBuffer);
     }
     
     void SpriteShader::setTextureCoordinate(const std::vector<GLfloat>& texCoord)

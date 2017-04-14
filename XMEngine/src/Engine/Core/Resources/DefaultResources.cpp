@@ -8,9 +8,14 @@
 
 #include "DefaultResources.h"
 #include "TextFileLoader.h"
+#include "EngineFonts.h"
 
 namespace gEngine{
 
+    std::string DefaultResources::getDefaultFont()
+    {
+        return kDefaultFont;
+    }
     
     std::shared_ptr<SimpleShader> DefaultResources::getConstColorShader()
     {
@@ -41,6 +46,8 @@ namespace gEngine{
         // texture shader
         (TextFileLoader::getInstance())->loadTextFile(kTextureVS, TextFileLoader::E_TEXT_FILE);
         (TextFileLoader::getInstance())->loadTextFile(kTextureFS, TextFileLoader::E_TEXT_FILE);
+        // load default font
+        (Fonts::getInstance())->loadFont(kDefaultFont);
         
         (ResourceMap::getInstance())->setLoadCompleteCallback(LoadCompleteCallback);
         

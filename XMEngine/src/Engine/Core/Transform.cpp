@@ -85,6 +85,14 @@ GLfloat Transform::getHeight()
 {
     return mScale.y;
 }
+void Transform::incWidthBy(GLfloat delta)
+{
+    mScale.x += delta;
+}
+void Transform::incHeightBy(GLfloat delta)
+{
+    mScale.y += delta;
+}
 void Transform::incSizeBy(GLfloat delta)
 {
     mScale.x += delta;

@@ -36,7 +36,7 @@ private:
     
     
     std::shared_ptr<SoundAssets> bgmAudio;
-    static void loadAudioTask(std::string clipName)
+    void loadAudioTask(std::string clipName)
     {
         std::shared_ptr<Asset> soundContent(new SoundAssets(clipName));
         (ResourceMap::getInstance())->asyncLoadCompleted(clipName, soundContent);

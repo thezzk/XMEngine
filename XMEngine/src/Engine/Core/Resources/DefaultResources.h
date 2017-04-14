@@ -28,6 +28,7 @@ public:
     friend SingletonBase<DefaultResources>;
     void createShaders();
     void initialize();
+    std::string getDefaultFont();
     std::shared_ptr<SimpleShader> getConstColorShader();
     std::shared_ptr<TextureShader> getTextureShader();
     std::shared_ptr<SpriteShader> getSpriteShader();
@@ -48,6 +49,7 @@ private:
     const std::string kSimpleFS = "src/GLSLShaders/SimpleFS.glsl";
     const std::string kTextureVS = "src/GLSLShaders/TextureVS.glsl";
     const std::string kTextureFS = "src/GLSLShaders/TextureFS.glsl";
+    const std::string kDefaultFont = "assets/fonts/system-default-font";
     
     std::shared_ptr<SimpleShader> mConstColorShader;
     std::shared_ptr<TextureShader> mTextureShader;

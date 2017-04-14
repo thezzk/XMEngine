@@ -6,7 +6,7 @@
 //  Copyright © 2017年 thezzk. All rights reserved.
 //
 #include "fstream"
-#include "thread"
+//#include "thread"
 
 #include "TextFileLoader.h"
 #include "TextAsset.h"
@@ -52,8 +52,7 @@ namespace gEngine{
         if(!((ResourceMap::getInstance())->isAssetLoaded(fileName)))
         {
             (ResourceMap::getInstance())->asyncLoadRequest(fileName);
-            std::thread loadFileThread(TextFileLoader::loadTextFileTask, fileName, fileType);
-            loadFileThread.detach();
+            loadTextFileTask(fileName, fileType);
         }
                 
     }
