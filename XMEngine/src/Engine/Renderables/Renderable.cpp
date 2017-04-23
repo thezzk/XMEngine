@@ -21,9 +21,9 @@ Renderable::~Renderable()
     
 }
 
-void Renderable::draw(glm::mat4 vpMatrix)
+void Renderable::draw(std::shared_ptr<const Camera> aCamera)
 {
-    mShader->activateShader(mColor, vpMatrix);
+    mShader->activateShader(mColor, aCamera);
     mShader->loadObjectTransform(mXform.getModelMatrix());
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }

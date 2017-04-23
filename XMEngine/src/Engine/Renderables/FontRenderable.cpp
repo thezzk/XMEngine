@@ -23,7 +23,7 @@ namespace gEngine{
         
     }
     
-    void FontRenderable::draw(glm::mat4 vpMatrix)
+    void FontRenderable::draw(std::shared_ptr<const Camera> aCamera)
     {
         GLfloat widthOfOneChar = getXform().getWidth() / (GLfloat)mText.size();
         GLfloat heightOfOneChar = getXform().getHeight();
@@ -46,7 +46,7 @@ namespace gEngine{
             GLfloat yOffset = heightOfOneChar * charInfo.mCharHeightOffset * 0.5f;
             
             (OneCharRenderable->getXform()).setPosition(xPos - xOffset, yPos - yOffset);
-            OneCharRenderable->draw(vpMatrix);
+            OneCharRenderable->draw(aCamera);
             xPos += widthOfOneChar;
         }
     }

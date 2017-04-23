@@ -21,7 +21,7 @@ namespace gEngine {
         SpriteShader(std::string vertexShaderpath, std::string fragmentShaderPath);
         virtual ~SpriteShader();
         void setTextureCoordinate(const std::vector<GLfloat>& texCoord);
-        virtual void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
+        virtual void activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera);
     private:
         GLuint mTexCoordBuffer;
         const static GLfloat initTexCoord[];

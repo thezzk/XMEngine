@@ -1,6 +1,7 @@
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/EngineFonts.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/SimpleShader.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/EngineCore.o
+/Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/BoundingBox.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/shader.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/SpriteRenderable.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/SpriteShader.o
@@ -15,6 +16,8 @@
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/main.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/EngineTexture.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/SpriteAnimateRenderable.o
+/Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/GameObjects.o
+/Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/MathExtension.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/Camera.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/SoundAsset.o
 /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/build/XMEngine.build/Debug/XMEngine.build/Objects-normal/x86_64/Asset.o

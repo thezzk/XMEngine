@@ -18,6 +18,7 @@
 
 #include "SimpleShader.h"
 #include "Transform.h"
+#include "Camera.h"
 
 namespace gEngine{
 
@@ -26,7 +27,7 @@ class Renderable
 public:
     Renderable();
     virtual ~Renderable();
-    virtual void draw(glm::mat4 vpMatrix);
+    virtual void draw(std::shared_ptr<const Camera> aCamera);
     void setShader(std::shared_ptr<SimpleShader> s);
     std::shared_ptr<SimpleShader> getShader();
     virtual void setColor(std::vector<GLfloat> color);

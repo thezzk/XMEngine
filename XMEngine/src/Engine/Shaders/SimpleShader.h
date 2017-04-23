@@ -16,13 +16,14 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
+#include "Camera.h"
 namespace gEngine{
 class SimpleShader
 {
 public:
     SimpleShader(std::string vertexFilePath, std::string fragmentFilePath);
     virtual ~SimpleShader();
-    virtual void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
+    virtual void activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera);
     void loadObjectTransform(glm::mat4 modelTransform);
     GLuint compileShader(std::string path, GLuint shaderType);
     GLuint getShader();

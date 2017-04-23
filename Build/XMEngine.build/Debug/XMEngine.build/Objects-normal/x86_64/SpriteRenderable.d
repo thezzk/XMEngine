@@ -80,6 +80,11 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SimpleShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.hpp \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/../gtc/constants.hpp \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Transform.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/TextureAsset.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/Asset.h \
@@ -91,11 +96,6 @@ dependencies: \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/DefaultResources.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineCore.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/MyGame/MyGame.h \
-  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.hpp \
-  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/../gtc/constants.hpp \
-  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
-  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.inl \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Scene.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/SpriteAnimateRenderable.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/FontRenderable.h \
@@ -103,4 +103,6 @@ dependencies: \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/FontAsset.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/XMLAsset.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/tinyxml2.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/GameObjects.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/BoundingBox.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineGameLoop.h

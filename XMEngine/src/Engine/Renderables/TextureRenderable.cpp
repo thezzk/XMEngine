@@ -25,12 +25,12 @@ namespace gEngine {
         
     }
     
-    void TextureRenderable::draw(glm::mat4 vpMatrix)
+    void TextureRenderable::draw(std::shared_ptr<const Camera> aCamera)
     {
         // activate the texture
         (Textures::getInstance())->activateTexture(mTexturePath);
         
-        Renderable::draw(vpMatrix);
+        Renderable::draw(aCamera);
     }
     
     std::string TextureRenderable::getTexturePath()

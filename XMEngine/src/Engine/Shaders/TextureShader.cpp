@@ -16,10 +16,10 @@ namespace gEngine {
     }
     
     
-    void TextureShader::activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix)
+    void TextureShader::activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera)
     {
         //Call the super class's activate
-        SimpleShader::activateShader(pixelColor, vpMatrix);
+        SimpleShader::activateShader(pixelColor, aCamera);
         
         //enable texture coordinate array
         glBindBuffer(GL_ARRAY_BUFFER, (VertexBuffer::getInstance())->getGLTexCoordRef());

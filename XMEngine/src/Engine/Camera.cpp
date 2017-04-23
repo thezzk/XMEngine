@@ -53,7 +53,7 @@ std::vector<float> Camera::getBackgroundColor()
     return mBgColor;
 }
 
-glm::mat4 Camera::getVPMatrix()
+glm::mat4 Camera::getVPMatrix() const
 {
     return mVPMatrix;
 }

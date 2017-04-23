@@ -105,6 +105,8 @@ dependencies: \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/EngineFonts.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/FontAsset.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/TextureAsset.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/GameObjects.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/BoundingBox.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineCore.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/AudioClips.h \
   /Library/Frameworks/SFML.framework/Headers/Audio.hpp \

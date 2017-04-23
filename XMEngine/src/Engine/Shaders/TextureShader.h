@@ -20,7 +20,7 @@ class TextureShader: public SimpleShader
 public:
     TextureShader(std::string vertexShaderPath, std::string fragmentShaderPath);
     virtual ~TextureShader();
-    virtual void activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix);
+    virtual void activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera);
     const GLuint getShaderTextureCoordAttribute();
 
 private:

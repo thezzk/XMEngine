@@ -29,7 +29,7 @@ namespace gEngine{
         void setElementUVCoordinate(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top);
         void setElementPixelPositions(GLuint left, GLuint right, GLuint bottom, GLuint top);
         std::vector<GLfloat> getElementUVCoordinateArray();
-        virtual void draw(glm::mat4 vpMatrix);
+        virtual void draw(std::shared_ptr<const Camera> aCamera);
     private:
         GLfloat mTexLeft;
         GLfloat mTexRight;

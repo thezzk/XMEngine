@@ -20,7 +20,7 @@ class TextureRenderable:public Renderable
 public:
     TextureRenderable(std::string mTexturePath);
     virtual ~TextureRenderable();
-    virtual void draw(glm::mat4 vpMatrix);
+    virtual void draw(std::shared_ptr<const Camera>);
     std::string getTexturePath();
     void setTexturePath(std::string path);
 private:

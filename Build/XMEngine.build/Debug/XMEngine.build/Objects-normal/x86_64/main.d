@@ -82,9 +82,9 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Shaders/SimpleShader.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/Renderable.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Transform.h \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Scene.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/SpriteRenderable.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Renderables/TextureRenderable.h \
@@ -97,6 +97,8 @@ dependencies: \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/XMLAsset.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/tinyxml2.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/TextureAsset.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/GameObjects.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/BoundingBox.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineCore.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineGameLoop.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/ResourceMap.h \
@@ -147,4 +149,5 @@ dependencies: \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileFactory.inl \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileReader.hpp \
   /Library/Frameworks/SFML.framework/Headers/Audio/SoundFileWriter.hpp \
-  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/SoundAsset.h
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/Resources/SoundAsset.h \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/MathExtension.h

@@ -96,10 +96,10 @@ SimpleShader::SimpleShader(std::string vertexFilePath, std::string fragmentFileP
     this->mViewProjTransform = glGetUniformLocation(this->mCompiledShader, "uViewProjTransform");
 }
     
-void SimpleShader::activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix)
+void SimpleShader::activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera)
 {
     glUseProgram(this->mCompiledShader);
-    glUniformMatrix4fv(mViewProjTransform, 1, GL_FALSE, &vpMatrix[0][0]);
+    glUniformMatrix4fv(mViewProjTransform, 1, GL_FALSE, &(aCamera->getVPMatrix()[0][0]));
     glEnableVertexAttribArray(this->mShaderVertexPositionAttribute);
     assert(pixelColor.size() >= 4);
     glUniform4fv(mPixelColor, 1, pixelColor.data());

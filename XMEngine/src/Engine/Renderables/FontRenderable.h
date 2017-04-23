@@ -21,7 +21,7 @@ class FontRenderable: public Renderable
 public:
     FontRenderable(std::string aString);
     virtual ~FontRenderable();
-    virtual void draw(glm::mat4 vpMatrix);
+    virtual void draw(std::shared_ptr<const Camera> aCamera);
     std::string getText();
     void setText(std::string text);
     std::string getFont();

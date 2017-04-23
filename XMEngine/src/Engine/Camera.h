@@ -30,7 +30,7 @@ public:
     std::vector<GLfloat> getViewport();
     void setBackgroundColor(std::vector<GLfloat> newColor);
     std::vector<GLfloat> getBackgroundColor();
-    glm::mat4 getVPMatrix();
+    glm::mat4 getVPMatrix() const;
     void setupViewProjection(); //Initializes the camera to begin drawing
     
     Camera();

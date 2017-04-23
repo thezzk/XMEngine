@@ -35,9 +35,9 @@ namespace gEngine {
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(GLfloat) * texCoord.size(), &texCoord[0]); //Use a trick
     }
     
-    void SpriteShader::activateShader(std::vector<GLfloat> pixelColor, glm::mat4 vpMatrix)
+    void SpriteShader::activateShader(std::vector<GLfloat> pixelColor, std::shared_ptr<const Camera> aCamera)
     {
-        SimpleShader::activateShader(pixelColor, vpMatrix);
+        SimpleShader::activateShader(pixelColor, aCamera);
         
         //now binds the proper texture coordinate buffer
         glBindBuffer(GL_ARRAY_BUFFER, mTexCoordBuffer);

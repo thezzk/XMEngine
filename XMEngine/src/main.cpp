@@ -19,6 +19,7 @@
 #include "SFML/Audio.hpp"
 #include "unistd.h"
 #include "SoundAsset.h"
+#include "MathExtension.h"
 using namespace std;
 
 
@@ -33,5 +34,6 @@ int main( void )
     std::shared_ptr<MyGame> newGame(new MyGame());
     (gEngine::Core::getInstance())->initializeEngineCore(newGame);
     
-    
+   
+   
 }

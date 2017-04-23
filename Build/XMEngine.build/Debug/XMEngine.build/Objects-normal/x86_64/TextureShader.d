@@ -78,5 +78,10 @@ dependencies: \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.hpp \
   /usr/local/Cellar/glm/0.9.7.4/include/glm/detail/func_integer.inl \
+  /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Camera.h \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.hpp \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/../gtc/constants.hpp \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/constants.inl \
+  /usr/local/Cellar/glm/0.9.7.4/include/glm/gtc/matrix_transform.inl \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Core/EngineVertexBuffer.h \
   /Users/thezzk/Develop/MEngine/XMEngine/XMEngine/XMEngine/src/Engine/Util/SingletonBase.h

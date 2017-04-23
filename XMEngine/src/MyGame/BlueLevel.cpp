@@ -117,11 +117,7 @@ void BlueLevel::draw()
     //B: Activate the drawing Camera
     mCamera->setupViewProjection();
     //C: Draw all squares
-    for(int i = 0; i < mSqSet.size(); i++)
-    {
-        mSqSet[i]->draw(mCamera->getVPMatrix());
-    }
-    
+        
     
 }
 

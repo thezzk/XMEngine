@@ -61,13 +61,13 @@ namespace gEngine{
         return retval;
     }
     
-    void SpriteRenderable::draw(glm::mat4 vpMatrix)
+    void SpriteRenderable::draw(std::shared_ptr<const Camera> aCamera)
     {
         // set the current texture coordinate
         std::shared_ptr<SpriteShader> shader =
         std::dynamic_pointer_cast<SpriteShader>(getShader());
         shader->setTextureCoordinate(getElementUVCoordinateArray());
         
-        TextureRenderable::draw(vpMatrix);
+        TextureRenderable::draw(aCamera);
     }
 }// namespace gEngine

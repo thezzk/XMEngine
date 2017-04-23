@@ -23,27 +23,32 @@
 #include "SpriteRenderable.h"
 #include "SpriteAnimateRenderable.h"
 #include "FontRenderable.h"
-
+#include "GameObjects.h"
+#include "BoundingBox.h"
 class MyGame: public gEngine::Scene
 {
 private:
+    std::shared_ptr<gEngine::GameObject> gameObj;
     std::shared_ptr<gEngine::Camera> mCamera;
-    std::shared_ptr<gEngine::SpriteAnimateRenderable> mRightMinion;
-    std::shared_ptr<gEngine::SpriteAnimateRenderable> mLeftMinion;
-    std::shared_ptr<gEngine::FontRenderable> mTextSysFont;
-    std::shared_ptr<gEngine::FontRenderable> mTextCon16;
-    std::shared_ptr<gEngine::FontRenderable> mTextCon24;
-    std::shared_ptr<gEngine::FontRenderable> mTextCon32;
-    std::shared_ptr<gEngine::FontRenderable> mTextCon72;
-    std::shared_ptr<gEngine::FontRenderable> mTextSeg96;
-    std::shared_ptr<gEngine::FontRenderable> mTextToWork;
+    std::shared_ptr<gEngine::BoundingBox> box;
+    std::shared_ptr<gEngine::BoundingBox> blockBox;
+    std::shared_ptr<gEngine::SpriteAnimateRenderable> mHit;
+    std::shared_ptr<gEngine::Renderable> p1;
+    std::shared_ptr<gEngine::Renderable> p2;
+    std::shared_ptr<gEngine::Renderable> p3;
+    std::shared_ptr<gEngine::Renderable> p4;
+    std::shared_ptr<gEngine::Renderable> block;
+    
     void initText(std::shared_ptr<gEngine::FontRenderable> font, GLfloat posX, GLfloat posY, std::vector<GLfloat> color, GLfloat textH);
 public:
    
     std::string kBgClip = "assets/sounds/BGClip.wav";
     std::string kCue = "assets/sounds/MyGame_cue.wav";
     std::string kMinionSprite = "assets/minion_sprite.tga";
+    std::string kActor = "assets/Actor.tga";
+    std::string kMountain = "assets/Mountains1.tga";
     std::string kFontImage = "assets/Consolas-72.tga";
+    std::string kHit = "assets/spritesheet.tga";
     
     std::string kFontCon16 = "assets/fonts/Consolas-16";
     std::string kFontCon24 = "assets/fonts/Consolas-24";

@@ -30,9 +30,8 @@ public:
     void setYPos(GLfloat yPos);
     GLfloat getYPos();
     void incXPosBy(GLfloat delta);
-    void decXPosBy(GLfloat delta);
     void incYPosBy(GLfloat delta);
-    void decYPosBy(GLfloat delta);
+
     
     /* Scale */
     void setSize(GLfloat width, GLfloat height);
@@ -42,7 +41,6 @@ public:
     void setHeight(GLfloat height);
     GLfloat getHeight();
     void incSizeBy(GLfloat delta);
-    void decSizeBy(GLfloat delta);
     void incWidthBy(GLfloat delta);
     void incHeightBy(GLfloat delta);
     
@@ -52,9 +50,8 @@ public:
     GLfloat getRotationInRad();
     GLfloat getRotationInDegree();
     void incRotationByDegree(GLfloat delta);
-    void decRotationByDegree(GLfloat delta);
     void incRotationByRad(GLfloat delta);
-    void decRotationByRad(GLfloat delta);
+
     
     //Get the matrix as result
     glm::mat4 getModelMatrix();

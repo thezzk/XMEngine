@@ -34,18 +34,7 @@ MyGame::~MyGame()
 }
 void MyGame::loadScene()
 {
-    (gEngine::Textures::getInstance())->loadTexture(kMinionSprite);
-    (gEngine::Textures::getInstance())->loadTexture(kFontImage);
-    
-    (gEngine::Fonts::getInstance())->loadFont(kFontCon16);
-    (gEngine::Fonts::getInstance())->loadFont(kFontCon24);
-    (gEngine::Fonts::getInstance())->loadFont(kFontCon32);
-    (gEngine::Fonts::getInstance())->loadFont(kFontCon72);
-    (gEngine::Fonts::getInstance())->loadFont(kFontSeg96);
-    
-    
-    (gEngine::AudioClips::getInstance())->loadAudio(kBgClip);
-    (gEngine::AudioClips::getInstance())->loadAudio(kCue);
+    (gEngine::Textures::getInstance())->loadTexture(kHit);
 }
 void MyGame::unloadScene()
 {
@@ -53,16 +42,8 @@ void MyGame::unloadScene()
     //(gEngine::AudioClips::getInstance())->stopBackgroundAudio();
     //(gEngine::AudioClips::getInstance())->unloadAudio(kBgClip);
     //The above line is commented out because the BGM clip will use in the next level!
-    (gEngine::AudioClips::getInstance())->unloadAudio(kCue);
     
-    (gEngine::Textures::getInstance())->unloadTexture(kFontImage);
-    (gEngine::Textures::getInstance())->unloadTexture(kMinionSprite);
-    
-    (gEngine::Fonts::getInstance())->unloadFont(kFontCon16);
-    (gEngine::Fonts::getInstance())->unloadFont(kFontCon32);
-    (gEngine::Fonts::getInstance())->unloadFont(kFontCon24);
-    (gEngine::Fonts::getInstance())->unloadFont(kFontCon72);
-    (gEngine::Fonts::getInstance())->unloadFont(kFontSeg96);
+    (gEngine::Textures::getInstance())->unloadTexture(kHit);
     
     std::shared_ptr<Scene> nextLevel(new BlueLevel());
     (gEngine::Core::getInstance())->startScene(nextLevel);
@@ -72,106 +53,128 @@ void MyGame::initialize()
 {
    
     //A: Camera
-    mCamera = std::shared_ptr<gEngine::Camera>(new gEngine::Camera(glm::vec2(50.0f, 30.0f), 160.0f, std::vector<GLfloat>({20.0f, 40.0f, 600.0f, 300.0f})));
+    mCamera = std::shared_ptr<gEngine::Camera>(new gEngine::Camera(glm::vec2(50.0f, 30.0f), 10.0f, std::vector<GLfloat>({20.0f, 40.0f, 600.0f, 300.0f})));
     mCamera->setBackgroundColor({0.8f, 0.8f, 0.8f, 1.0f});
     //B: GameObjs
-    mRightMinion = std::shared_ptr<gEngine::SpriteAnimateRenderable>(new gEngine::SpriteAnimateRenderable(kMinionSprite));
-    mRightMinion->setColor({1.0f, 1.0f, 1.0f, 0.0f});
-    mRightMinion->getXform().setPosition(26.0f, 56.5f);
-    mRightMinion->getXform().setSize(4.0f, 3.2f);
-    mRightMinion->setSpriteSequence(512, 0, 204, 164, 5, 0);
-    mRightMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_RIGHT);
-    mRightMinion->setAnimationInterval(50);
+  
+    block = std::shared_ptr<gEngine::Renderable>(new gEngine::Renderable());
+    block->setColor({1.0f, 1.0f, 1.0f, 0.5f});
+    (block->getXform()).setPosition(53.0f, 30.0f);
+    (block->getXform()).setSize(3.0f, 3.0f);
+    (block->getXform()).setRotationInRad(2.8f);
     
-    mLeftMinion = std::shared_ptr<gEngine::SpriteAnimateRenderable>(new gEngine::SpriteAnimateRenderable(kMinionSprite));
-    mLeftMinion->setColor({1.0f, 1.0f, 1.0f, 0.0f});
-    mLeftMinion->getXform().setPosition(15.0f, 56.5f);
-    mLeftMinion->getXform().setSize(4.0f, 3.2f);
-    mLeftMinion->setSpriteSequence(348, 0, 204, 164, 5, 0);
-    mLeftMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_RIGHT);
-    mLeftMinion->setAnimationInterval(50);
-    //C: fonts
-    mTextSysFont = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("System Font: in Red"));
-    initText(mTextSysFont, 50.0f, 60.0f, {1.0f, 0.0f, 0.0f, 1.0f}, 3.0f);
+    p1 = std::shared_ptr<gEngine::Renderable>(new gEngine::Renderable());
+    p1->setColor({1.0f, 0.0f, 0.0f, 1.0f});
+    (p1->getXform()).setSize(0.2f, 0.2f);
+    p2 = std::shared_ptr<gEngine::Renderable>(new gEngine::Renderable());
+    p2->setColor({0.0f, 1.0f, 0.0f, 1.0f});
+    (p2->getXform()).setSize(0.2f, 0.2f);
+    p3 = std::shared_ptr<gEngine::Renderable>(new gEngine::Renderable());
+    p3->setColor({1.0f, 0.0f, 1.0f, 1.0f});
+    (p3->getXform()).setSize(0.2f, 0.2f);
+    p4 = std::shared_ptr<gEngine::Renderable>(new gEngine::Renderable());
+    p4->setColor({0.0f, 0.0f, 1.0f, 1.0f});
+    (p4->getXform()).setSize(0.2f, 0.2f);
+    box =std::shared_ptr<gEngine::BoundingBox>(new gEngine::BoundingBox());
+    blockBox = std::shared_ptr<gEngine::BoundingBox>(new gEngine::BoundingBox());
+    mHit = std::shared_ptr<gEngine::SpriteAnimateRenderable>(new gEngine::SpriteAnimateRenderable(kHit));
+    mHit->setColor({1.0f, 1.0f, 1.0f, 0.0f});
+    (mHit->getXform()).setPosition(50.0f, 30.0f);
+    (mHit->getXform()).setSize(1.0f, 1.0f);
+    mHit->setSpriteSequence(512, 0, 32, 32, 4, 0);
+    mHit->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_SWING);
+    mHit->setAnimationInterval(10);
     
-    mTextCon16 = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("Consolas 16: in black"));
-    mTextCon16->setFont(kFontCon16);
-    initText(mTextCon16, 50.0f, 55.0f, {0.0f, 0.0f, 0.0f, 1.0f}, 2.0f);
-    
-    mTextCon24 = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("Consolas 24: in black"));
-    mTextCon24->setFont(kFontCon24);
-    initText(mTextCon24, 50.0f, 50.0f, {0.0f, 0.0f, 0.0f, 1.0f}, 3.0f);
-    
-    mTextCon32 = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("Consolas 32: in white"));
-    mTextCon32->setFont(kFontCon32);
-    initText(mTextCon32, 40.0f, 40.0f, {1.0f, 1.0f, 1.0f, 1.0f}, 4.0f);
-    
-    mTextCon72 = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("Consolas 72: in blue"));
-    mTextCon72->setFont(kFontCon72);
-    initText(mTextCon72, 30.0f, 30.0f, {0.0f, 0.0f, 1.0f, 1.0f}, 6.0f);
-    
-    mTextSeg96 = std::shared_ptr<gEngine::FontRenderable>(new gEngine::FontRenderable("Segment7-92"));
-    mTextSeg96->setFont(kFontSeg96);
-    initText(mTextSeg96, 30.0f, 15.0f, {1.0f, 1.0f, 0.0f, 1.0f}, 7.0f);
-    
-    mTextToWork = mTextCon16;
-    //(gEngine::AudioClips::getInstance())->playBackgroundAudio(kBgClip);
+  
+    gameObj = std::shared_ptr<gEngine::GameObject>(new gEngine::GameObject(mHit));
 }
 void MyGame::update()
 {
-    /*mRightMinion->updateAnimation();
-    mLeftMinion->updateAnimation();
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_1))
+    mHit->updateAnimation();
+    GLfloat delta = 0.05f;
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_W))
     {
-        mRightMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_LEFT);
-        mLeftMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_LEFT);
+        gameObj->translate(glm::vec2(0.0f, delta), gEngine::GameObject::SELF_SPACE);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_2))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_S))
     {
-        mRightMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_SWING);
-        mLeftMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_SWING);
+        gameObj->translate(glm::vec2(0.0f, -delta), gEngine::GameObject::SELF_SPACE);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_3))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_A))
     {
-        mRightMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_RIGHT);
-        mLeftMinion->setAnimationType(gEngine::SpriteAnimateRenderable::ANIMATE_RIGHT);
+        gameObj->rotateInRad(delta);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_4))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_D))
     {
-        mRightMinion->incAnimationInterval(-2);
-        mLeftMinion->incAnimationInterval(-2);
+        gameObj->rotateInRad(-delta);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_5))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_I))
     {
-        mRightMinion->incAnimationInterval(2);
-        mLeftMinion->incAnimationInterval(2);
+        glm::vec2 v = box->getSizeScale();
+        v[1] += delta;
+        box->setSizeScale(v);
     }
-    */
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_0))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_K))
     {
-        mTextCon16->setText("click0");
+        glm::vec2 v = box->getSizeScale();
+        v[1] -= delta;
+        box->setSizeScale(v);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_Q))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_J))
     {
-        (mTextCon24->getXform()).incHeightBy(0.05f);
-        GLfloat w = (mTextCon24->getXform()).getWidth();
-        GLfloat h = (mTextCon24->getXform()).getHeight();
-        std::stringstream ss;
-        ss<<w<<" x "<<h;
-        mTextCon24->setText(ss.str().c_str());
-        
+        glm::vec2 v = box->getSizeScale();
+        v[0] -= delta;
+        box->setSizeScale(v);
     }
-    if((gEngine::Input::getInstance())->isKeyClicked(KEY_E))
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_L))
     {
-        (mTextCon24->getXform()).incWidthBy(-0.05f);
-        GLfloat w = (mTextCon24->getXform()).getWidth();
-        GLfloat h = (mTextCon24->getXform()).getHeight();
-        std::stringstream ss;
-        ss<<w<<" x "<<h;
-        mTextCon24->setText(ss.str().c_str());
+        glm::vec2 v = box->getSizeScale();
+        v[0] += delta;
+        box->setSizeScale(v);
     }
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_T))
+    {
+        glm::vec2 v = box->getOffset();
+        v[1] +=delta;
+        box->setOffset(v);
+    }
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_G))
+    {
+        glm::vec2 v = box->getOffset();
+        v[1] -=delta;
+        box->setOffset(v);
+    }
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_F))
+    {
+        glm::vec2 v = box->getOffset();
+        v[0] -=delta;
+        box->setOffset(v);
+    }
+    if((gEngine::Input::getInstance())->isKeyPressed(KEY_H))
+    {
+        glm::vec2 v = box->getOffset();
+        v[0] +=delta;
+        box->setOffset(v);
+    }
+    std::vector<glm::vec2> vec = box->getBoxVertex(mHit->getXform());
+    GLfloat x = vec[0][0];
+    GLfloat y = vec[0][1];
+    (p1->getXform()).setPosition(x, y);
+    (p2->getXform()).setPosition(vec[1][0], vec[1][1]);
+    (p3->getXform()).setPosition(vec[2][0], vec[2][1]);
+    (p4->getXform()).setPosition(vec[3][0], vec[3][1]);
+    gEngine::OBB obb1(box->getBoxVertex(mHit->getXform()));
+    gEngine::OBB obb2(blockBox->getBoxVertex(block->getXform()));
+    if(obb1.isCollidWithOBB(&obb2))
+    {
+        gameObj->setVisibility(false);
+    }
+    else
+    {
+        gameObj->setVisibility(true);
+    }
+    mCamera->setWCCenter((mHit->getXform()).getXPos(), (mHit->getXform()).getYPos());
     
-   
 }
 void MyGame::draw()
 {
@@ -179,23 +182,19 @@ void MyGame::draw()
     (gEngine::Core::getInstance())->clearCanvas({0.9, 0.9, 0.9, 1.0});
     //B: Activate the drawing Camera
     mCamera->setupViewProjection();
-    //C: Draw all objs
-    //mLeftMinion->draw(mCamera->getVPMatrix());
-    //mRightMinion->draw(mCamera->getVPMatrix());
-    //D: Draw fonts
-    mTextSysFont->draw(mCamera->getVPMatrix());
-    mTextCon16->draw(mCamera->getVPMatrix());
-    mTextCon32->draw(mCamera->getVPMatrix());
-    mTextCon24->draw(mCamera->getVPMatrix());
-    mTextCon72->draw(mCamera->getVPMatrix());
-    mTextSeg96->draw(mCamera->getVPMatrix());
   
+    gameObj->draw(mCamera);
+    p1->draw(mCamera);
+    p2->draw(mCamera);
+    p3->draw(mCamera);
+    p4->draw(mCamera);
+    block->draw(mCamera);
     
 }
 
-void MyGame::initText(std::shared_ptr<gEngine::FontRenderable> font, GLfloat posX, GLfloat posY, std::vector<GLfloat> color, GLfloat textH)
+/*void MyGame::initText(std::shared_ptr<gEngine::FontRenderable> font, GLfloat posX, GLfloat posY, std::vector<GLfloat> color, GLfloat textH)
 {
     font->setColor(color);
     (font->getXform()).setPosition(posX, posY);
     font->setTextHeight(textH);
-}
+}*/

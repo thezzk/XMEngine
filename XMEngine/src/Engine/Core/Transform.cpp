@@ -51,14 +51,7 @@ void Transform::incYPosBy(GLfloat delta)
 {
     mPosition.y += delta;
 }
-void Transform::decXPosBy(GLfloat delta)
-{
-    mPosition.x -= delta;
-}
-void Transform::decYPosBy(GLfloat delta)
-{
-    mPosition.y -= delta;
-}
+
 /* Scale */
 void Transform::setSize(GLfloat width, GLfloat height)
 {
@@ -98,11 +91,7 @@ void Transform::incSizeBy(GLfloat delta)
     mScale.x += delta;
     mScale.y += delta;
 }
-void Transform::decSizeBy(GLfloat delta)
-{
-    mScale.x -= delta;
-    mScale.y -= delta;
-}
+
 /* Rotation */
 void Transform::setRotationInRad(GLfloat rotationInRadians)
 {
@@ -124,18 +113,12 @@ void Transform::incRotationByRad(GLfloat delta)
 {
     mRotationInRad += delta;
 }
-void Transform::decRotationByRad(GLfloat delta)
-{
-    mRotationInRad -= delta;
-}
+
 void Transform::incRotationByDegree(GLfloat delta)
 {
     mRotationInRad += (delta / 180.0) * M_PI;
 }
-void Transform::decRotationByDegree(GLfloat delta)
-{
-    mRotationInRad -= (delta / 180.0) * M_PI;
-}
+
 
 glm::mat4 Transform::getModelMatrix()
 {
